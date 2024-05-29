@@ -127,7 +127,7 @@ functions:
           rules:
             - prefix: fieldData/
             - suffix: .json
-        - s3:
+      - s3:
           bucket: ${self:custom.mlrFormBucket}
           existing: true
           forceDeploy: true
@@ -135,7 +135,7 @@ functions:
           rules:
             - prefix: fieldData/
             - suffix: .json
-        - s3:
+      - s3:
           bucket: ${self:custom.mcparFormBucket}
           existing: true
           forceDeploy: true
