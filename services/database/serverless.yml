@@ -31,6 +31,12 @@ custom:
   mlrFormBucket: ${env:MLR_FORM_BUCKET, "${self:service}-${self:custom.stage}-mlr"}
   naaarReportTableName: ${self:custom.stage}-naaar-reports
   naaarFormBucket: ${env:NAAAR_FORM_BUCKET, "${self:service}-${self:custom.stage}-naaar"}
+  bootstrapBrokerStringTls: ${env:BROKER_STRINGS, ssm:/configuration/${self:custom.stage}/bigmac/bootstrapBrokerStringTls, ssm:/configuration/default/bigmac/bootstrapBrokerStringTls}
+  vpcId: ${env:VPC_ID, ssm:/configuration/${self:custom.stage}/vpc/id, ssm:/configuration/default/vpc/id}
+  privateSubnets:
+    - ${env:VPC_SUBNET_A, ssm:/configuration/${self:custom.stage}/vpc/subnets/private/a/id, ssm:/configuration/default/vpc/subnets/private/a/id}
+    - ${env:VPC_SUBNET_B, ssm:/configuration/${self:custom.stage}/vpc/subnets/private/b/id, ssm:/configuration/default/vpc/subnets/private/b/id}
+    - ${env:VPC_SUBNET_C, ssm:/configuration/${self:custom.stage}/vpc/subnets/private/c/id, ssm:/configuration/default/vpc/subnets/private/c/id}  
   dynamodb:
     stages:
       - local
@@ -38,10 +44,172 @@ custom:
       port: 8000
       inMemory: true
       migrate: true
+params:
+  main:
+    topicNamespace: ""
+  val:
+    topicNamespace: ""
+  production:
+    topicNamespace: ""
+  default:
+    topicNamespace: --${self:custom.project}--${sls:stage}--      
 provider:
   name: aws
   runtime: nodejs20.x
   region: us-east-1
+  environment:
+    BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+    MCPAR_FORM_BUCKET: ${self:custom.mcparFormBucket}
+    MLR_FORM_BUCKET: ${self:custom.mlrFormBucket}
+    NAAAR_FORM_BUCKET: ${self:custom.naaarFormBucket}
+    STAGE: ${self:custom.stage}
+  # iam:
+  #   role:
+  #     path: ${env:IAM_PATH, ssm:/configuration/${self:custom.stage}/iam/path, ssm:/configuration/default/iam/path, "/"}
+  #     permissionsBoundary: ${env:IAM_PERMISSIONS_BOUNDARY, ssm:/configuration/${self:custom.stage}/iam/permissionsBoundaryPolicy, ssm:/configuration/default/iam/permissionsBoundaryPolicy, ""}
+  #     statements:
+  #       - Effect: "Allow"
+  #         Action:
+  #           - "s3:GetObject"
+  #           - "s3:ListBucket"
+  #           - "s3:PutObject"
+  #         Resource:
+  #           - "arn:aws:s3:::${self:custom.templateBucket}"
+  #           - "arn:aws:s3:::${self:custom.templateBucket}/templates/*"
+  #           - "arn:aws:s3:::${self:custom.mcparFormBucket}"
+  #           - "arn:aws:s3:::${self:custom.mcparFormBucket}/formTemplates/*"
+  #           - "arn:aws:s3:::${self:custom.mcparFormBucket}/fieldData/*"
+  #           - "arn:aws:s3:::${self:custom.mlrFormBucket}"
+  #           - "arn:aws:s3:::${self:custom.mlrFormBucket}/formTemplates/*"
+  #           - "arn:aws:s3:::${self:custom.mlrFormBucket}/fieldData/*"
+  #           - "arn:aws:s3:::${self:custom.naaarFormBucket}"
+  #           - "arn:aws:s3:::${self:custom.naaarFormBucket}/formTemplates/*"
+  #           - "arn:aws:s3:::${self:custom.naaarFormBucket}/fieldData/*" 
+
+functions:
+  postKafkaData:
+    handler: handlers/kafka/post/postKafkaData.handler
+    environment:
+      BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+      STAGE: ${self:custom.stage}
+      topicNamespace: ${param:topicNamespace}
+    maximumRetryAttempts: 2
+    timeout: 120
+    memorySize: 2048
+    vpc:
+      securityGroupIds:
+        - Ref: KafkaSecurityGroup
+      subnetIds: ${self:custom.privateSubnets}
+    events:
+      - stream:
+          type: dynamodb
+          arn: ${self:custom.mcparReportTableStreamArn}
+          startingPosition: TRIM_HORIZON
+          maximumRetryAttempts: 2
+          enabled: true
+      - stream:
+          type: dynamodb
+          arn: ${self:custom.mlrReportTableStreamArn}
+          startingPosition: TRIM_HORIZON
+          maximumRetryAttempts: 2
+          enabled: true
+      - stream:
+          type: dynamodb
+          arn: ${self:custom.naaarReportTableStreamArn}
+          startingPosition: TRIM_HORIZON
+          maximumRetryAttempts: 2
+          enabled: true
+      - s3:
+          bucket: ${self:custom.naaarFormBucket}
+          existing: true
+          forceDeploy: true
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: fieldData/
+            - suffix: .json
+        - s3:
+          bucket: ${self:custom.mlrFormBucket}
+          existing: true
+          forceDeploy: true
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: fieldData/
+            - suffix: .json
+        - s3:
+          bucket: ${self:custom.mcparFormBucket}
+          existing: true
+          forceDeploy: true
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: fieldData/
+            - suffix: .json
+
+  # postNaaarBucketData:
+  #   handler: handlers/kafka/post/postKafkaData.handler
+  #   environment:
+  #     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+  #     STAGE: ${self:custom.stage}
+  #     topicNamespace: ${param:topicNamespace}
+  #   maximumRetryAttempts: 2
+  #   timeout: 120
+  #   memorySize: 2048
+  #   vpc:
+  #     securityGroupIds:
+  #       - Ref: KafkaSecurityGroup
+  #     subnetIds: ${self:custom.privateSubnets}
+  #   events:
+  #     - s3:
+  #         bucket: ${self:custom.naaarFormBucket}
+  #         existing: true
+  #         forceDeploy: true
+  #         event: s3:ObjectCreated:*
+  #         rules:
+  #           - prefix: fieldData/
+  #           - suffix: .json
+  # postMlrBucketData:
+  #   handler: handlers/kafka/post/postKafkaData.handler
+  #   environment:
+  #     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+  #     STAGE: ${self:custom.stage}
+  #     topicNamespace: ${param:topicNamespace}
+  #   maximumRetryAttempts: 2
+  #   timeout: 120
+  #   memorySize: 2048
+  #   vpc:
+  #     securityGroupIds:
+  #       - Ref: KafkaSecurityGroup
+  #     subnetIds: ${self:custom.privateSubnets}
+  #   events:
+  #     - s3:
+  #         bucket: ${self:custom.mlrFormBucket}
+  #         existing: true
+  #         forceDeploy: true
+  #         event: s3:ObjectCreated:*
+  #         rules:
+  #           - prefix: fieldData/
+  #           - suffix: .json
+  #  postMcparBucketData:
+  #   handler: handlers/kafka/post/postKafkaData.handler
+  #   environment:
+  #     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+  #     STAGE: ${self:custom.stage}
+  #     topicNamespace: ${param:topicNamespace}
+  #   maximumRetryAttempts: 2
+  #   timeout: 120
+  #   memorySize: 2048
+  #   vpc:
+  #     securityGroupIds:
+  #       - Ref: KafkaSecurityGroup
+  #     subnetIds: ${self:custom.privateSubnets}
+  #   events:
+  #     - s3:
+  #         bucket: ${self:custom.mcparFormBucket}
+  #         existing: true
+  #         forceDeploy: true
+  #         event: s3:ObjectCreated:*
+  #         rules:
+  #           - prefix: fieldData/
+  #           - suffix: .json
 
 resources:
   Resources:
@@ -191,6 +359,11 @@ resources:
             AttributeType: S
           - AttributeName: md5Hash
             AttributeType: S
+    KafkaSecurityGroup:
+      Type: AWS::EC2::SecurityGroup
+      Properties:
+        GroupDescription: Security Group for streaming functions.  Egress all is set by default.
+        VpcId: ${self:custom.vpcId}
 
   Outputs:
     BannerTableName:
