@@ -179,7 +179,7 @@ functions:
       subnetIds: ${self:custom.privateSubnets}
     events:
       - s3:
-          bucket: bucket: !Ref McparFormBucket
+          bucket: !Ref McparFormBucket
           existing: true
           forceDeploy: true
           event: s3:ObjectCreated:*
