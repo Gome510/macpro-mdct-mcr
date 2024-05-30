@@ -75,17 +75,15 @@ provider:
             - "s3:ListBucket"
             - "s3:PutObject"
           Resource:
-            - "arn:aws:s3:::${self:custom.templateBucket}"
-            - "arn:aws:s3:::${self:custom.templateBucket}/templates/*"
-            - "arn:aws:s3:::${self:custom.mcparFormBucket}"
-            - "arn:aws:s3:::${self:custom.mcparFormBucket}/formTemplates/*"
-            - "arn:aws:s3:::${self:custom.mcparFormBucket}/fieldData/*"
-            - "arn:aws:s3:::${self:custom.mlrFormBucket}"
-            - "arn:aws:s3:::${self:custom.mlrFormBucket}/formTemplates/*"
-            - "arn:aws:s3:::${self:custom.mlrFormBucket}/fieldData/*"
-            - "arn:aws:s3:::${self:custom.naaarFormBucket}"
-            - "arn:aws:s3:::${self:custom.naaarFormBucket}/formTemplates/*"
-            - "arn:aws:s3:::${self:custom.naaarFormBucket}/fieldData/*" 
+            - !GetAtt McparFormBucket.Arn
+            - !Sub "${McparFormBucket.Arn}/formTemplates/*"
+            - !Sub "${McparFormBucket.Arn}/fieldData/*"
+            - !GetAtt MlrFormBucket.Arn
+            - !Sub "${MlrFormBucket.Arn}/formTemplates/*"
+            - !Sub "${MlrFormBucket.Arn}/fieldData/*"
+            - !GetAtt NaaarFormBucket.Arn
+            - !Sub "${NaaarFormBucket.Arn}/formTemplates/*"
+            - !Sub "${NaaarFormBucket.Arn}/fieldData/*"
 
 functions:
   postKafkaData:
