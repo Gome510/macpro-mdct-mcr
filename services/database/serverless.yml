@@ -60,9 +60,9 @@ provider:
   region: us-east-1
   environment:
     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
-    MCPAR_FORM_BUCKET: ${self:custom.mcparFormBucket}
-    MLR_FORM_BUCKET: ${self:custom.mlrFormBucket}
-    NAAAR_FORM_BUCKET: ${self:custom.naaarFormBucket}
+    # MCPAR_FORM_BUCKET: ${self:custom.mcparFormBucket}
+    # MLR_FORM_BUCKET: ${self:custom.mlrFormBucket}
+    # NAAAR_FORM_BUCKET: ${self:custom.naaarFormBucket}
     STAGE: ${self:custom.stage}
   # iam:
   #   role:
@@ -104,24 +104,24 @@ functions:
     events:
       - stream:
           type: dynamodb
-          arn: ${self:custom.mcparReportTableStreamArn}
+          arn: !GetAtt McparReportTable.StreamArn
           startingPosition: TRIM_HORIZON
           maximumRetryAttempts: 2
           enabled: true
       - stream:
           type: dynamodb
-          arn: ${self:custom.mlrReportTableStreamArn}
+          arn: !GetAtt MlrReportTable.StreamArn
           startingPosition: TRIM_HORIZON
           maximumRetryAttempts: 2
           enabled: true
       - stream:
           type: dynamodb
-          arn: ${self:custom.naaarReportTableStreamArn}
+          arn: !GetAtt NaaarReportTable.StreamArn
           startingPosition: TRIM_HORIZON
           maximumRetryAttempts: 2
           enabled: true
       - s3:
-          bucket: ${self:custom.naaarFormBucket}
+          bucket: !Ref NaaarFormBucket
           existing: true
           forceDeploy: true
           event: s3:ObjectCreated:*
@@ -129,7 +129,7 @@ functions:
             - prefix: fieldData/
             - suffix: .json
       - s3:
-          bucket: ${self:custom.mlrFormBucket}
+          bucket: !Ref MlrFormBucket
           existing: true
           forceDeploy: true
           event: s3:ObjectCreated:*
@@ -137,7 +137,7 @@ functions:
             - prefix: fieldData/
             - suffix: .json
       - s3:
-          bucket: ${self:custom.mcparFormBucket}
+          bucket: !Ref McparFormBucket
           existing: true
           forceDeploy: true
           event: s3:ObjectCreated:*
