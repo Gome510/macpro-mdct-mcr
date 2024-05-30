@@ -215,11 +215,11 @@ resources:
                       Value: fieldData/
                     - Name: suffix
                       Value: .json
-              Function: !GetAtt PostMcparBucketData.Arn
+              Function: !GetAtt PostMcparBucketDataLambdaFunction.Arn
     McparS3BucketTrigger:
       Type: AWS::Lambda::Permission
       Properties:
-        FunctionName: !GetAtt PostMcparBucketData.Arn
+        FunctionName: !GetAtt PostMcparBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
         SourceArn: !GetAtt McparFormBucket.Arn                             
@@ -260,11 +260,11 @@ resources:
                       Value: fieldData/
                     - Name: suffix
                       Value: .json
-              Function: !GetAtt PostMlrBucketData.Arn
+              Function: !GetAtt PostMlrBucketDataLambdaFunction.Arn
     MlrS3BucketTrigger:
       Type: AWS::Lambda::Permission
       Properties:
-        FunctionName: !GetAtt PostMlrBucketData.Arn
+        FunctionName: !GetAtt PostMlrBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
         SourceArn: !GetAtt MlrFormBucket.Arn                              
@@ -305,11 +305,11 @@ resources:
                       Value: fieldData/
                     - Name: suffix
                       Value: .json
-              Function: !GetAtt PostNaaarBucketData.Arn
+              Function: !GetAtt PostNaaarBucketDataLambdaFunction.Arn
     NaaarS3BucketTrigger:
       Type: AWS::Lambda::Permission
       Properties:
-        FunctionName: !GetAtt PostNaaarBucketData.Arn
+        FunctionName: !GetAtt PostNaaarBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
         SourceArn: !GetAtt NaaarFormBucket.Arn
