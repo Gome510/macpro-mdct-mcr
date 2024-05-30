@@ -164,7 +164,7 @@ functions:
           rules:
             - prefix: fieldData/
             - suffix: .json
-   postMcparBucketData:
+  postMcparBucketData:
     handler: handlers/kafka/post/postKafkaData.handler
     environment:
       BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
