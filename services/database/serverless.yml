@@ -216,7 +216,7 @@ resources:
                     - Name: suffix
                       Value: .json
               Function: !GetAtt PostMcparFormBucket.Arn
-    MlrS3BucketTrigger:
+    McparS3BucketTrigger:
       Type: AWS::Lambda::Permission
       Properties:
         FunctionName: !GetAtt PostMcparFormBucket.Arn
