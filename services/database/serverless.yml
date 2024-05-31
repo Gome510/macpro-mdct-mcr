@@ -37,7 +37,7 @@ custom:
   privateSubnets:
     - ${env:VPC_SUBNET_A, ssm:/configuration/${self:custom.stage}/vpc/subnets/private/a/id, ssm:/configuration/default/vpc/subnets/private/a/id}
     - ${env:VPC_SUBNET_B, ssm:/configuration/${self:custom.stage}/vpc/subnets/private/b/id, ssm:/configuration/default/vpc/subnets/private/b/id}
-    - ${env:VPC_SUBNET_C, ssm:/configuration/${self:custom.stage}/vpc/subnets/private/c/id, ssm:/configuration/default/vpc/subnets/private/c/id}  
+    - ${env:VPC_SUBNET_C, ssm:/configuration/${self:custom.stage}/vpc/subnets/private/c/id, ssm:/configuration/default/vpc/subnets/private/c/id}
   dynamodb:
     stages:
       - local
@@ -53,7 +53,7 @@ params:
   production:
     topicNamespace: ""
   default:
-    topicNamespace: --${self:custom.project}--${sls:stage}--      
+    topicNamespace: --${self:custom.project}--${sls:stage}--
 provider:
   name: aws
   runtime: nodejs20.x
@@ -71,22 +71,22 @@ provider:
       statements:
         - Effect: "Allow"
           Action:
-            - ssm:GetParameter      
+            - ssm:GetParameter
         - Effect: "Allow"
           Action:
             - "s3:GetObject"
             - "s3:ListBucket"
             - "s3:PutObject"
           Resource:
-            - !GetAtt McparFormBucket.Arn
-            - !Sub "${McparFormBucket.Arn}/formTemplates/*"
-            - !Sub "${McparFormBucket.Arn}/fieldData/*"
-            - !GetAtt MlrFormBucket.Arn
-            - !Sub "${MlrFormBucket.Arn}/formTemplates/*"
-            - !Sub "${MlrFormBucket.Arn}/fieldData/*"
-            - !GetAtt NaaarFormBucket.Arn
-            - !Sub "${NaaarFormBucket.Arn}/formTemplates/*"
-            - !Sub "${NaaarFormBucket.Arn}/fieldData/*"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mcparFormBucket}"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mcparFormBucket}/formTemplates/*"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mcparFormBucket}/fieldData/*"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mlrFormBucket}"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mlrFormBucket}/formTemplates/*"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mlrFormBucket}/fieldData/*"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.naaarFormBucket}"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.naaarFormBucket}/*"
+            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.naaarFormBucket}/*"
 
 functions:
   postKafkaData:
@@ -200,7 +200,7 @@ resources:
     McparFormBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: !Sub ${self:service}-${self:custom.stage}-mcpar
+        BucketName: ${self:custom.mcparFormBucket}
         BucketEncryption:
           ServerSideEncryptionConfiguration:
             - ServerSideEncryptionByDefault:
@@ -222,7 +222,7 @@ resources:
         FunctionName: !GetAtt PostMcparBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
-        SourceArn: !GetAtt McparFormBucket.Arn                             
+        SourceArn: !GetAtt McparFormBucket.Arn
     MlrReportTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -245,7 +245,7 @@ resources:
     MlrFormBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: !Sub ${self:service}-${self:custom.stage}-mlr
+        BucketName: ${self:custom.mlrFormBucket}
         BucketEncryption:
           ServerSideEncryptionConfiguration:
             - ServerSideEncryptionByDefault:
@@ -267,7 +267,7 @@ resources:
         FunctionName: !GetAtt PostMlrBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
-        SourceArn: !GetAtt MlrFormBucket.Arn                              
+        SourceArn: !GetAtt MlrFormBucket.Arn
     NaaarReportTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -290,7 +290,7 @@ resources:
     NaaarFormBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: !Sub ${self:service}-${self:custom.stage}-naaar
+        BucketName: ${self:custom.naaarFormBucket}
         BucketEncryption:
           ServerSideEncryptionConfiguration:
             - ServerSideEncryptionByDefault:
@@ -370,7 +370,6 @@ resources:
         GroupDescription: Security Group for streaming functions.  Egress all is set by default.
         VpcId: ${self:custom.vpcId}
 
-        
   Outputs:
     BannerTableName:
       Value: !Ref BannerTable
