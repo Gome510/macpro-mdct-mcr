@@ -75,15 +75,15 @@ provider:
             - "s3:ListBucket"
             - "s3:PutObject"
           Resource:
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mcparFormBucket}"
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mcparFormBucket}/formTemplates/*"
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mcparFormBucket}/fieldData/*"
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mlrFormBucket}"
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mlrFormBucket}/formTemplates/*"
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mlrFormBucket}/fieldData/*"
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.naaarFormBucket}"
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.naaarFormBucket}/*"
-            - !Sub "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.naaarFormBucket}/*"
+            - !Sub "arn:aws:s3:::${self:custom.mcparFormBucket}"
+            - !Sub "arn:aws:s3:::${self:custom.mcparFormBucket}/formTemplates/*"
+            - !Sub "arn:aws:s3:::${self:custom.mcparFormBucket}/fieldData/*"
+            - !Sub "arn:aws:s3:::${self:custom.mlrFormBucket}"
+            - !Sub "arn:aws:s3:::${self:custom.mlrFormBucket}/formTemplates/*"
+            - !Sub "arn:aws:s3:::${self:custom.mlrFormBucket}/fieldData/*"
+            - !Sub "arn:aws:s3:::${self:custom.naaarFormBucket}"
+            - !Sub "arn:aws:s3:::${self:custom.naaarFormBucket}/*"
+            - !Sub "arn:aws:s3:::${self:custom.naaarFormBucket}/*"
 
 functions:
   postKafkaData:
@@ -220,7 +220,8 @@ resources:
         FunctionName: !GetAtt PostMcparBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
-        SourceArn: "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mcparFormBucket}"
+        SourceAccount: ${aws:accountId}
+        SourceArn: "arn:aws:s3:::${self:custom.mcparFormBucket}"
     MlrReportTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -266,7 +267,8 @@ resources:
         FunctionName: !GetAtt PostMlrBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
-        SourceArn: "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mlrFormBucket}"
+        SourceAccount: ${aws:accountId}
+        SourceArn: "arn:aws:s3:::${self:custom.mlrFormBucket}"
     NaaarReportTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -312,7 +314,8 @@ resources:
         FunctionName: !GetAtt PostNaaarBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
-        SourceArn: "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.naaarFormBucket}"
+        SourceAccount: ${aws:accountId}
+        SourceArn: "arn:aws:s3:::${self:custom.naaarFormBucket}"
 
     FormTemplateVersionsTable:
       Type: AWS::DynamoDB::Table
