@@ -220,7 +220,7 @@ resources:
         FunctionName: !GetAtt PostMcparBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
-        SourceArn: !GetAtt McparFormBucket.Arn
+        SourceArn: "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mcparFormBucket}"
     MlrReportTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -266,7 +266,7 @@ resources:
         FunctionName: !GetAtt PostMlrBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
-        SourceArn: !GetAtt MlrFormBucket.Arn
+        SourceArn: "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.mlrFormBucket}"
     NaaarReportTable:
       Type: AWS::DynamoDB::Table
       Properties:
@@ -312,7 +312,7 @@ resources:
         FunctionName: !GetAtt PostNaaarBucketDataLambdaFunction.Arn
         Action: lambda:InvokeFunction
         Principal: s3.amazonaws.com
-        SourceArn: !GetAtt NaaarFormBucket.Arn
+        SourceArn: "arn:aws:s3:::${self:service}-${self:custom.stage}-${self:custom.naaarFormBucket}"
 
     FormTemplateVersionsTable:
       Type: AWS::DynamoDB::Table
