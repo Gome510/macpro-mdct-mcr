@@ -57,7 +57,7 @@ custom:
   mcparFormBucket: ${env:MCPAR_FORM_BUCKET, param:McparFormBucketName}
   mlrFormBucket: ${env:MLR_FORM_BUCKET, param:MlrFormBucketName}
   naaarFormBucket: ${env:NAAAR_FORM_BUCKET, param:NaaarFormBucketName}
-  # bootstrapBrokerStringTls: ${env:BROKER_STRINGS, ssm:/configuration/${self:custom.stage}/bigmac/bootstrapBrokerStringTls, ssm:/configuration/default/bigmac/bootstrapBrokerStringTls}
+  bootstrapBrokerStringTls: ${env:BROKER_STRINGS, ssm:/configuration/${self:custom.stage}/bigmac/bootstrapBrokerStringTls, ssm:/configuration/default/bigmac/bootstrapBrokerStringTls}
   vpcId: ${env:VPC_ID, ssm:/configuration/${self:custom.stage}/vpc/id, ssm:/configuration/default/vpc/id}
   privateSubnets:
     - ${env:VPC_SUBNET_A, ssm:/configuration/${self:custom.stage}/vpc/subnets/private/a/id, ssm:/configuration/default/vpc/subnets/private/a/id}
@@ -82,9 +82,10 @@ custom:
 #     topicNamespace: ""
 #   default:
 #     topicNamespace: --${self:custom.project}--${sls:stage}--
-# provider:
+provider:
   name: aws
   runtime: nodejs20.x
+  region: us-east-1
   tracing:
     apiGateway: true
   logs:
@@ -302,105 +303,104 @@ functions:
             parameters:
               paths:
                 templateName: true
-  # postKafkaData:
-  #   handler: handlers/kafka/post/postKafkaData.handler
-  #   environment:
-  #     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
-  #     STAGE: ${self:custom.stage}
-  #     topicNamespace: ${param:topicNamespace}
-  #   maximumRetryAttempts: 2
-  #   timeout: 120
-  #   memorySize: 2048
-  #   vpc:
-  #     securityGroupIds:
-  #       - Ref: KafkaSecurityGroup
-  #     subnetIds: ${self:custom.privateSubnets}
-  #   events:
-  #     - stream:
-  #         type: dynamodb
-  #         arn: ${self:custom.mcparReportTableStreamArn}
-  #         startingPosition: TRIM_HORIZON
-  #         maximumRetryAttempts: 2
-  #         enabled: true
-  #     - stream:
-  #         type: dynamodb
-  #         arn: ${self:custom.mlrReportTableStreamArn}
-  #         startingPosition: TRIM_HORIZON
-  #         maximumRetryAttempts: 2
-  #         enabled: true
-  #     - stream:
-  #         type: dynamodb
-  #         arn: ${self:custom.naaarReportTableStreamArn}
-  #         startingPosition: TRIM_HORIZON
-  #         maximumRetryAttempts: 2
-  #         enabled: true
-  # postNaaarBucketData:
-  #   handler: handlers/kafka/post/postKafkaData.handler
-  #   environment:
-  #     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
-  #     STAGE: ${self:custom.stage}
-  #     topicNamespace: ${param:topicNamespace}
-  #   maximumRetryAttempts: 2
-  #   timeout: 120
-  #   memorySize: 2048
-  #   vpc:
-  #     securityGroupIds:
-  #       - Ref: KafkaSecurityGroup
-  #     subnetIds: ${self:custom.privateSubnets}
-  #   events:
-  #     - s3:
-  #         bucket: ${self:custom.naaarFormBucket}
-  #         existing: true
-  #         forceDeploy: true
-  #         event: s3:ObjectCreated:*
-  #         rules:
-  #           - prefix: fieldData/
-  #           - suffix: .json
-  # postMlrBucketData:
-  #   handler: handlers/kafka/post/postKafkaData.handler
-  #   environment:
-  #     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
-  #     STAGE: ${self:custom.stage}
-  #     topicNamespace: ${param:topicNamespace}
-  #   maximumRetryAttempts: 2
-  #   timeout: 120
-  #   memorySize: 2048
-  #   vpc:
-  #     securityGroupIds:
-  #       - Ref: KafkaSecurityGroup
-  #     subnetIds: ${self:custom.privateSubnets}
-  #   events:
-  #     - s3:
-  #         bucket: ${self:custom.mlrFormBucket}
-  #         existing: true
-  #         forceDeploy: true
-  #         event: s3:ObjectCreated:*
-  #         rules:
-  #           - prefix: fieldData/
-  #           - suffix: .json
-  # postMcparBucketData:
-  #   handler: handlers/kafka/post/postKafkaData.handler
-  #   environment:
-  #     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
-  #     STAGE: ${self:custom.stage}
-  #     topicNamespace: ${param:topicNamespace}
-  #   maximumRetryAttempts: 2
-  #   timeout: 120
-  #   memorySize: 2048
-  #   vpc:
-  #     securityGroupIds:
-  #       - Ref: KafkaSecurityGroup
-  #     subnetIds: ${self:custom.privateSubnets}
-  #   events:
-  #     - s3:
-  #         bucket: ${self:custom.mcparFormBucket}
-  #         existing: true
-  #         forceDeploy: true
-  #         event: s3:ObjectCreated:*
-  #         rules:
-  #           - prefix: fieldData/
-  #           - suffix: .json
-
+  postKafkaData:
+    handler: handlers/kafka/post/postKafkaData.handler
+    environment:
+      BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+      STAGE: ${self:custom.stage}
+      topicNamespace: ${param:topicNamespace}
+    maximumRetryAttempts: 2
+    timeout: 120
+    memorySize: 2048
+    vpc:
+      securityGroupIds:
+        - Ref: KafkaSecurityGroup
+      subnetIds: ${self:custom.privateSubnets}
+    events:
+      - stream:
+          type: dynamodb
+          arn: ${self:custom.mcparReportTableStreamArn}
+          startingPosition: TRIM_HORIZON
+          maximumRetryAttempts: 2
+          enabled: true
+      - stream:
+          type: dynamodb
+          arn: ${self:custom.mlrReportTableStreamArn}
+          startingPosition: TRIM_HORIZON
+          maximumRetryAttempts: 2
+          enabled: true
+      - stream:
+          type: dynamodb
+          arn: ${self:custom.naaarReportTableStreamArn}
+          startingPosition: TRIM_HORIZON
+          maximumRetryAttempts: 2
+          enabled: true
+  postNaaarBucketData:
+    handler: handlers/kafka/post/postKafkaData.handler
+    environment:
+      BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+      STAGE: ${self:custom.stage}
+      topicNamespace: ${param:topicNamespace}
+    maximumRetryAttempts: 2
+    timeout: 120
+    memorySize: 2048
+    vpc:
+      securityGroupIds:
+        - Ref: KafkaSecurityGroup
+      subnetIds: ${self:custom.privateSubnets}
+    events:
+      - s3:
+          bucket: ${self:custom.naaarFormBucket}
+          existing: true
+          forceDeploy: true
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: fieldData/
+            - suffix: .json
+  postMlrBucketData:
+    handler: handlers/kafka/post/postKafkaData.handler
+    environment:
+      BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+      STAGE: ${self:custom.stage}
+      topicNamespace: ${param:topicNamespace}
+    maximumRetryAttempts: 2
+    timeout: 120
+    memorySize: 2048
+    vpc:
+      securityGroupIds:
+        - Ref: KafkaSecurityGroup
+      subnetIds: ${self:custom.privateSubnets}
+    events:
+      - s3:
+          bucket: ${self:custom.mlrFormBucket}
+          existing: true
+          forceDeploy: true
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: fieldData/
+            - suffix: .json
+  postMcparBucketData:
+    handler: handlers/kafka/post/postKafkaData.handler
+    environment:
+      BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
+      STAGE: ${self:custom.stage}
+      topicNamespace: ${param:topicNamespace}
+    maximumRetryAttempts: 2
+    timeout: 120
+    memorySize: 2048
+    vpc:
+      securityGroupIds:
+        - Ref: KafkaSecurityGroup
+      subnetIds: ${self:custom.privateSubnets}
+    events:
+      - s3:
+          bucket: ${self:custom.mcparFormBucket}
+          existing: true
+          forceDeploy: true
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: fieldData/
+            - suffix: .json
 resources:
   Resources:
     GatewayResponseDefault4XX:
@@ -419,11 +419,11 @@ resources:
           gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
         ResponseType: DEFAULT_5XX
         RestApiId: !Ref ApiGatewayRestApi
-    # KafkaSecurityGroup:
-    #   Type: AWS::EC2::SecurityGroup
-    #   Properties:
-    #     GroupDescription: Security Group for streaming functions.  Egress all is set by default.
-    #     VpcId: ${self:custom.vpcId}
+    KafkaSecurityGroup:
+      Type: AWS::EC2::SecurityGroup
+      Properties:
+        GroupDescription: Security Group for streaming functions.  Egress all is set by default.
+        VpcId: ${self:custom.vpcId}
   Outputs:
     ApiGatewayRestApiName:
       Value: !Ref ApiGatewayRestApi
