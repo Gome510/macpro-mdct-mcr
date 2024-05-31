@@ -213,7 +213,7 @@ resources:
                     - Name: suffix
                       Value: .json
               Function: !GetAtt PostMcparBucketDataLambdaFunction.Arn
-        DependsOn: McparS3BucketTrigger
+      DependsOn: McparS3BucketTrigger
     McparS3BucketTrigger:
       Type: AWS::Lambda::Permission
       Properties:
@@ -259,7 +259,7 @@ resources:
                     - Name: suffix
                       Value: .json
               Function: !GetAtt PostMlrBucketDataLambdaFunction.Arn
-        DependsOn: MlrS3BucketTrigger
+      DependsOn: MlrS3BucketTrigger
     MlrS3BucketTrigger:
       Type: AWS::Lambda::Permission
       Properties:
@@ -305,7 +305,7 @@ resources:
                     - Name: suffix
                       Value: .json
               Function: !GetAtt PostNaaarBucketDataLambdaFunction.Arn
-        DependsOn: NaaarS3BucketTrigger
+      DependsOn: NaaarS3BucketTrigger
     NaaarS3BucketTrigger:
       Type: AWS::Lambda::Permission
       Properties:
