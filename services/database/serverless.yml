@@ -2,11 +2,22 @@ service: database
 
 frameworkVersion: "3"
 
+package:
+  individually: true
+  patterns:
+    - node_modules/**
+
 plugins:
   - serverless-dynamodb
   - serverless-stack-termination-protection
   - serverless-s3-bucket-helper
   - serverless-offline
+  - serverless-plugin-typescript
+  - serverless-dotenv-plugin
+  - serverless-iam-helper
+  - serverless-api-client-certificate
+  - serverless-plugin-common-excludes # this should go before serverless-plugin-include-dependencies
+  - serverless-plugin-include-dependencies
 
 s3BucketHelper:
   loggingConfiguration:
