@@ -72,7 +72,6 @@ provider:
   environment:
     BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
     BANNER_TABLE_NAME: ${self:custom.bannerTableName}
-    BOOTSTRAP_BROKER_STRING_TLS: ${self:custom.bootstrapBrokerStringTls}
     MCPAR_REPORT_TABLE_NAME: ${self:custom.mcparReportTableName}
     MLR_REPORT_TABLE_NAME: ${self:custom.mlrReportTableName}
     NAAAR_REPORT_TABLE_NAME: ${self:custom.naaarReportTableName}
