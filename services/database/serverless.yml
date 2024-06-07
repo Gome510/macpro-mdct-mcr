@@ -76,7 +76,6 @@ provider:
     MLR_REPORT_TABLE_NAME: ${self:custom.mlrReportTableName}
     NAAAR_REPORT_TABLE_NAME: ${self:custom.naaarReportTableName}
     FORM_TEMPLATE_TABLE_NAME: ${self:custom.formTemplateTableName}
-    TEMPLATE_BUCKET: ${self:custom.templateBucket}
     MCPAR_FORM_BUCKET: ${self:custom.mcparFormBucket}
     MLR_FORM_BUCKET: ${self:custom.mlrFormBucket}
     NAAAR_FORM_BUCKET: ${self:custom.naaarFormBucket}
