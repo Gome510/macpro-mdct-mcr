@@ -3,7 +3,7 @@ import sign from "jwt-encode";
 import {
   MCPARReportMetadata,
   MLRReportMetadata,
-} from "../../shared_utils/types";
+} from "../../../shared_utils/types";
 import { mockReportRoutes } from "./mocks/mockReport";
 
 export const mockS3PutObjectCommandOutput = {
