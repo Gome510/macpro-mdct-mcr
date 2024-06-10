@@ -1,4 +1,4 @@
-import { APIGatewayProxyEventPathParameters } from "../../shared_utils/types";
+import { APIGatewayProxyEventPathParameters } from "../../../shared_utils/types";
 
 export const hasReportPathParams = (
   eventParams: APIGatewayProxyEventPathParameters,

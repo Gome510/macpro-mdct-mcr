@@ -1,7 +1,7 @@
 import * as yup from "yup";
-import { error } from "../../shared_utils/constants/constants";
+import { error } from "../../../shared_utils/constants/constants";
 // types
-import { AnyObject } from "../../shared_utils/types";
+import { AnyObject } from "../../../shared_utils/types";
 // utils
 import { nested, endDate, schemaMap } from "./schemaMap";
 

@@ -6,7 +6,7 @@ import {
   string,
   number as yupNumber,
 } from "yup";
-import { Choice } from "../../shared_utils/types";
+import { Choice } from "../../../shared_utils/types";
 
 export const error = {
   REQUIRED_GENERIC: "A response is required",

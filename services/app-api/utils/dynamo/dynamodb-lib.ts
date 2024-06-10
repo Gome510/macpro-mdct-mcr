@@ -11,9 +11,9 @@ import {
   PutCommandInput,
 } from "@aws-sdk/lib-dynamodb";
 // utils
-import { logger } from "../../shared_utils/debugging/debug-lib";
+import { logger } from "../../../shared_utils/debugging/debug-lib";
 // types
-import { AnyObject } from "../../shared_utils/types";
+import { AnyObject } from "../../../shared_utils/types";
 
 const localConfig = {
   endpoint: process.env.DYNAMODB_URL,

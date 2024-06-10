@@ -1,4 +1,4 @@
-import { ReportStatus } from "../../../shared_utils/types";
+import { ReportStatus } from "../../../../shared_utils/types";
 import {
   mockStandardReportPageJson,
   mockDrawerReportPageJson,

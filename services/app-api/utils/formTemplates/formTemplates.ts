@@ -2,9 +2,9 @@ import { QueryCommandInput } from "@aws-sdk/lib-dynamodb";
 import dynamodbLib from "../dynamo/dynamodb-lib";
 import mlrForm from "../../forms/mlr.json";
 import mcparForm from "../../forms/mcpar.json";
-import s3Lib, { getFormTemplateKey } from "../../shared_utils/s3/s3-lib";
+import s3Lib, { getFormTemplateKey } from "../../../shared_utils/s3/s3-lib";
 import KSUID from "ksuid";
-import { logger } from "../../shared_utils/debugging/debug-lib";
+import { logger } from "../../../shared_utils/debugging/debug-lib";
 import {
   AnyObject,
   assertExhaustive,
@@ -16,7 +16,7 @@ import {
   ReportJson,
   ReportRoute,
   ReportType,
-} from "../../shared_utils/types";
+} from "../../../shared_utils/types";
 import { getTemplate } from "../../handlers/formTemplates/populateTemplatesTable";
 import { createHash } from "crypto";
 
