@@ -1,5 +1,5 @@
 {
-  "name": "shared-utils",
+  "name": "shared_utils",
   "description": "",
   "version": "1.0.0",
   "main": "handler.js",
@@ -57,11 +57,10 @@
       "text-summary"
     ],
     "collectCoverageFrom": [
-      "handlers/**/*.{ts,tsx}",
-      "utils/**/*.{ts,tsx}",
-      "!utils/constants/*",
-      "!utils/testing/*",
-      "!utils/types/*"
+      "shared_utils/**/*.{ts,tsx}",
+      "!shared_utils/constants/*",
+      "!shared_utils/testing/*",
+      "!shared_utils/types/*"
     ],
     "moduleDirectories": [
       "node_modules"
@@ -70,7 +69,7 @@
       "<rootDir>/.build/"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/utils/testing/setupJest.ts"
+      "<rootDir>/shared_utils/testing/setupJest.ts"
     ]
   }
 }

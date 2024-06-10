@@ -2,6 +2,10 @@
 
 set -e
 
+deps=(
+  'shared_utils' 
+)
+
 services=(
   'ui-src'
   'app-api'
@@ -21,14 +25,17 @@ unit_test() {
   service=$1
   pushd services/$service
   install_deps
-  yarn run coverage
+  if [[ ! " ${deps[*]} " =~ " ${service} " ]]; then
+    yarn run coverage
+  fi
   popd
 }
 
 install_deps
 export PATH=$(pwd)/node_modules/.bin/:$PATH
 
-for i in "${services[@]}"
+concat=("${deps[@]}" "${services[@]}")
+for i in ${concat[@]}
 do
 	unit_test $i
 done

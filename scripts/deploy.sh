@@ -4,6 +4,10 @@ set -e
 
 stage=${1:-dev}
 
+deps=(
+  'shared_utils' 
+)
+
 services=(
   'database'
   'uploads'
@@ -34,12 +38,13 @@ prepare_service() {
 install_deps
 export PATH=$(pwd)/node_modules/.bin/:$PATH
 
-for i in "${services[@]}"
+concat=("${deps[@]}" "${services[@]}")
+for i in "${concat[@]}"
 do
 	prepare_service $i
 done
 
-serverless deploy  --stage $stage
+serverless deploy --stage $stage
 
 pushd services
 echo """
