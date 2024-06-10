@@ -5,7 +5,7 @@ import { PutCommandInput } from "@aws-sdk/lib-dynamodb";
 // utils
 import dynamoDb from "../../utils/dynamo/dynamodb-lib";
 import { hasReportPathParams } from "../../utils/dynamo/hasReportPathParams";
-import s3Lib, { getFieldDataKey } from "../../utils/s3/s3-lib";
+import s3Lib, { getFieldDataKey } from "../../../shared_utils/s3/s3-lib";
 import { hasPermissions } from "../../utils/auth/authorization";
 import {
   validateData,
@@ -16,9 +16,9 @@ import {
   error,
   reportTables,
   reportBuckets,
-} from "../../utils/constants/constants";
+} from "../../../shared_utils/constants/constants";
 import { getOrCreateFormTemplate } from "../../utils/formTemplates/formTemplates";
-import { logger } from "../../utils/debugging/debug-lib";
+import { logger } from "../../../shared_utils/debugging/debug-lib";
 import {
   copyFieldDataFromSource,
   makePCCMModifications,
@@ -29,7 +29,7 @@ import {
   isState,
   StatusCodes,
   UserRoles,
-} from "../../utils/types";
+} from "../../../shared_utils/types";
 
 export const createReport = handler(async (event, _context) => {
   const requiredParams = ["reportType", "state"];

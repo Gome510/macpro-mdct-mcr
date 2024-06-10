@@ -7,7 +7,7 @@ import { hasPermissions } from "../../utils/auth/authorization";
 import s3Lib, {
   getFieldDataKey,
   getFormTemplateKey,
-} from "../../utils/s3/s3-lib";
+} from "../../../shared_utils/s3/s3-lib";
 import {
   validateData,
   validateFieldData,
@@ -17,13 +17,18 @@ import {
   error,
   reportTables,
   reportBuckets,
-} from "../../utils/constants/constants";
+} from "../../../shared_utils/constants/constants";
 import {
   calculateCompletionStatus,
   isComplete,
 } from "../../utils/validation/completionStatus";
 // types
-import { isState, ReportJson, StatusCodes, UserRoles } from "../../utils/types";
+import {
+  isState,
+  ReportJson,
+  StatusCodes,
+  UserRoles,
+} from "../../../shared_utils/types";
 
 export const updateReport = handler(async (event, context) => {
   const requiredParams = ["reportType", "id", "state"];

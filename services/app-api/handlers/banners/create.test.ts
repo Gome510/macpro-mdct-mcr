@@ -2,9 +2,9 @@ import { createBanner } from "./create";
 import { DynamoDBDocumentClient, PutCommand } from "@aws-sdk/lib-dynamodb";
 import { mockClient } from "aws-sdk-client-mock";
 // types
-import { APIGatewayProxyEvent, StatusCodes } from "../../utils/types";
+import { APIGatewayProxyEvent, StatusCodes } from "../../../shared_utils/types";
 // utils
-import { error } from "../../utils/constants/constants";
+import { error } from "../../../shared_utils/constants/constants";
 import { proxyEvent } from "../../utils/testing/proxyEvent";
 
 const dynamoClientMock = mockClient(DynamoDBDocumentClient);

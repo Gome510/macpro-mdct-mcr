@@ -6,10 +6,10 @@ import {
   mockDynamoPutCommandOutput,
   mockMcparReport,
 } from "../../utils/testing/setupJest";
-import { error } from "../../utils/constants/constants";
+import { error } from "../../../shared_utils/constants/constants";
 import dynamodbLib from "../../utils/dynamo/dynamodb-lib";
 // types
-import { APIGatewayProxyEvent, StatusCodes } from "../../utils/types";
+import { APIGatewayProxyEvent, StatusCodes } from "../../../shared_utils/types";
 
 jest.mock("../../utils/auth/authorization", () => ({
   isAuthorized: jest.fn().mockResolvedValue(true),

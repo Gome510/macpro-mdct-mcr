@@ -2,10 +2,10 @@ import handler from "../handler-lib";
 import { fetchReport } from "./fetch";
 // utils
 import dynamoDb from "../../utils/dynamo/dynamodb-lib";
-import { error, reportTables } from "../../utils/constants/constants";
+import { error, reportTables } from "../../../shared_utils/constants/constants";
 import { hasPermissions } from "../../utils/auth/authorization";
 // types
-import { StatusCodes, UserRoles } from "../../utils/types";
+import { StatusCodes, UserRoles } from "../../../shared_utils/types";
 
 export const archiveReport = handler(async (event, context) => {
   // Return a 403 status if the user is not an admin.

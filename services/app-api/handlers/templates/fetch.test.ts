@@ -1,15 +1,15 @@
 import { fetchTemplate } from "./fetch";
 // utils
 import { proxyEvent } from "../../utils/testing/proxyEvent";
-import { error } from "../../utils/constants/constants";
+import { error } from "../../../shared_utils/constants/constants";
 // types
-import { APIGatewayProxyEvent, StatusCodes } from "../../utils/types";
+import { APIGatewayProxyEvent, StatusCodes } from "../../../shared_utils/types";
 
 jest.mock("../../utils/auth/authorization", () => ({
   isAuthorized: jest.fn().mockReturnValue(true),
 }));
 
-jest.mock("../../utils/s3/s3-lib", () => ({
+jest.mock("../../../shared_utils/s3/s3-lib", () => ({
   getSignedDownloadUrl: jest.fn().mockReturnValue("s3://fakeurl.bucket.here"),
 }));
 

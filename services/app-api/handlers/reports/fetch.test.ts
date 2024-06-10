@@ -3,7 +3,7 @@ import { DynamoDBDocumentClient, GetCommand } from "@aws-sdk/lib-dynamodb";
 import { mockClient } from "aws-sdk-client-mock";
 // utils
 import { proxyEvent } from "../../utils/testing/proxyEvent";
-import { error } from "../../utils/constants/constants";
+import { error } from "../../../shared_utils/constants/constants";
 import {
   mockDynamoData,
   mockReportJson,
@@ -11,9 +11,9 @@ import {
   mockDynamoDataCompleted,
 } from "../../utils/testing/setupJest";
 import dynamodbLib from "../../utils/dynamo/dynamodb-lib";
-import s3Lib from "../../utils/s3/s3-lib";
+import s3Lib from "../../../shared_utils/s3/s3-lib";
 // types
-import { APIGatewayProxyEvent, StatusCodes } from "../../utils/types";
+import { APIGatewayProxyEvent, StatusCodes } from "../../../shared_utils/types";
 
 const dynamoClientMock = mockClient(DynamoDBDocumentClient);
 

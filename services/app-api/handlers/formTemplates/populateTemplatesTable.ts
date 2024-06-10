@@ -1,5 +1,5 @@
-import s3Lib from "../../utils/s3/s3-lib";
-import { ReportJson } from "../../utils/types";
+import s3Lib from "../../../shared_utils/s3/s3-lib";
+import { ReportJson } from "../../../shared_utils/types";
 
 /**
  * Retrieve template data from S3

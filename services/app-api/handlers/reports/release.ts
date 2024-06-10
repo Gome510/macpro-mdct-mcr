@@ -11,12 +11,12 @@ import {
   error,
   reportBuckets,
   reportTables,
-} from "../../utils/constants/constants";
+} from "../../../shared_utils/constants/constants";
 import { hasPermissions } from "../../utils/auth/authorization";
 import s3Lib, {
   getFieldDataKey,
   getFormTemplateKey,
-} from "../../utils/s3/s3-lib";
+} from "../../../shared_utils/s3/s3-lib";
 import { calculateCompletionStatus } from "../../utils/validation/completionStatus";
 // types
 import {
@@ -25,7 +25,7 @@ import {
   ReportType,
   StatusCodes,
   UserRoles,
-} from "../../utils/types";
+} from "../../../shared_utils/types";
 
 /**
  * Locked reports can be released by admins.

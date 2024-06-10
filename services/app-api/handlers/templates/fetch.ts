@@ -1,9 +1,9 @@
 import handler from "../handler-lib";
 // utils
-import { error } from "../../utils/constants/constants";
-import s3Lib from "../../utils/s3/s3-lib";
+import { error } from "../../../shared_utils/constants/constants";
+import s3Lib from "../../../shared_utils/s3/s3-lib";
 // types
-import { StatusCodes, TemplateKeys } from "../../utils/types";
+import { StatusCodes, TemplateKeys } from "../../../shared_utils/types";
 
 export const fetchTemplate = handler(async (event, _context) => {
   if (!event?.pathParameters?.templateName!) {

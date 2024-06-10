@@ -2,7 +2,7 @@ import handlerLib from "./handler-lib";
 // utils
 import { proxyEvent } from "../utils/testing/proxyEvent";
 import { isAuthorized } from "../utils/auth/authorization";
-import * as logger from "../utils/debugging/debug-lib";
+import * as logger from "../../shared_utils/debugging/debug-lib";
 
 jest.mock("../utils/debugging/debug-lib", () => ({
   init: jest.fn(),

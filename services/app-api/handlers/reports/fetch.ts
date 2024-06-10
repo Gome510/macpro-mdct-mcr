@@ -7,19 +7,19 @@ import { hasReportPathParams } from "../../utils/dynamo/hasReportPathParams";
 import s3Lib, {
   getFieldDataKey,
   getFormTemplateKey,
-} from "../../utils/s3/s3-lib";
+} from "../../../shared_utils/s3/s3-lib";
 import {
   error,
   reportBuckets,
   reportTables,
-} from "../../utils/constants/constants";
+} from "../../../shared_utils/constants/constants";
 import {
   calculateCompletionStatus,
   isComplete,
 } from "../../utils/validation/completionStatus";
 import { isAuthorizedToFetchState } from "../../utils/auth/authorization";
 // types
-import { AnyObject, isState, StatusCodes } from "../../utils/types";
+import { AnyObject, isState, StatusCodes } from "../../../shared_utils/types";
 
 export const fetchReport = handler(async (event, _context) => {
   const requiredParams = ["reportType", "id", "state"];

@@ -3,8 +3,8 @@ import {
   reportBuckets,
   reportTables,
   tableTopics,
-} from "../../../utils/constants/constants";
-import KafkaSourceLib from "../../../utils/kafka/kafka-source-lib";
+} from "../../../../shared_utils/constants/constants";
+import KafkaSourceLib from "../../../../shared_utils/kafka/kafka-source-lib";
 
 const topicPrefix = "aws.mdct.mcr";
 const version = "v0";

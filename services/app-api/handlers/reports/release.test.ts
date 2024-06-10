@@ -11,10 +11,10 @@ import {
   mockReportFieldData,
   mockS3PutObjectCommandOutput,
 } from "../../utils/testing/setupJest";
-import { error } from "../../utils/constants/constants";
-import s3Lib from "../../utils/s3/s3-lib";
+import { error } from "../../../shared_utils/constants/constants";
+import s3Lib from "../../../shared_utils/s3/s3-lib";
 // types
-import { APIGatewayProxyEvent, StatusCodes } from "../../utils/types";
+import { APIGatewayProxyEvent, StatusCodes } from "../../../shared_utils/types";
 
 const dynamoClientMock = mockClient(DynamoDBDocumentClient);
 

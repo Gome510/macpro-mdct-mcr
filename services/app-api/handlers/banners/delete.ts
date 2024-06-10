@@ -2,9 +2,9 @@ import handler from "../handler-lib";
 // utils
 import dynamoDb from "../../utils/dynamo/dynamodb-lib";
 import { hasPermissions } from "../../utils/auth/authorization";
-import { error } from "../../utils/constants/constants";
+import { error } from "../../../shared_utils/constants/constants";
 // types
-import { StatusCodes, UserRoles } from "../../utils/types";
+import { StatusCodes, UserRoles } from "../../../shared_utils/types";
 
 export const deleteBanner = handler(async (event, _context) => {
   if (!hasPermissions(event, [UserRoles.ADMIN])) {

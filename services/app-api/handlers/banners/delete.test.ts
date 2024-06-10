@@ -3,9 +3,9 @@ import { DeleteCommand, DynamoDBDocumentClient } from "@aws-sdk/lib-dynamodb";
 import { mockClient } from "aws-sdk-client-mock";
 // utils
 import { proxyEvent } from "../../utils/testing/proxyEvent";
-import { error } from "../../utils/constants/constants";
+import { error } from "../../../shared_utils/constants/constants";
 // types
-import { APIGatewayProxyEvent, StatusCodes } from "../../utils/types";
+import { APIGatewayProxyEvent, StatusCodes } from "../../../shared_utils/types";
 
 const dynamoClientMock = mockClient(DynamoDBDocumentClient);
 

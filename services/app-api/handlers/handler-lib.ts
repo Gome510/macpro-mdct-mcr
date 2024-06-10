@@ -1,14 +1,14 @@
 // utils
-import * as logger from "../utils/debugging/debug-lib";
+import * as logger from "../../shared_utils/debugging/debug-lib";
 import { isAuthorized } from "../utils/auth/authorization";
 import {
   internalServerError,
   buildResponse,
 } from "../utils/responses/response-lib";
-import { error } from "../utils/constants/constants";
+import { error } from "../../shared_utils/constants/constants";
 import { sanitizeObject } from "../utils/sanitize/sanitize";
 // types
-import { APIGatewayProxyEvent, StatusCodes } from "../utils/types";
+import { APIGatewayProxyEvent, StatusCodes } from "../../shared_utils/types";
 
 type LambdaFunction = (
   event: APIGatewayProxyEvent, // eslint-disable-line no-unused-vars
