@@ -6,7 +6,7 @@ import {
   isAuthorized,
   isAuthorizedToFetchState,
 } from "./authorization";
-import { UserRoles } from "../types";
+import { UserRoles } from "../../shared_utils/types";
 
 const mockVerifier = jest.fn();
 

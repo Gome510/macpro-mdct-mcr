@@ -1,5 +1,5 @@
 import { copyFieldDataFromSource, makePCCMModifications } from "./reports";
-import { ReportType } from "../../utils/types";
+import { ReportType } from "../../../shared_utils/types";
 import { mockReportJson } from "../../utils/testing/setupJest";
 describe("Test copyFieldDataFromSource", () => {
   test("Test copyFieldDataFromSource returns validatedField data if reportType is not MCPAR", async () => {

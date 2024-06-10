@@ -7,7 +7,7 @@ import {
   Choice,
   FormField,
   ReportRoute,
-} from "../types";
+} from "../../shared_utils/types";
 // utils
 import { validateFieldData } from "./completionValidation";
 

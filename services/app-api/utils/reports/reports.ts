@@ -1,7 +1,7 @@
-import { McparFieldsToCopy } from "../constants/constants";
+import { McparFieldsToCopy } from "../../shared_utils/constants/constants";
 import { getPossibleFieldsFromFormTemplate } from "../formTemplates/formTemplates";
-import s3Lib, { getFieldDataKey } from "../s3/s3-lib";
-import { AnyObject, ReportType, State } from "../types";
+import s3Lib, { getFieldDataKey } from "../../shared_utils/s3/s3-lib";
+import { AnyObject, ReportType, State } from "../../shared_utils/types";
 
 /**
  *

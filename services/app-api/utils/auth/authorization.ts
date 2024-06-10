@@ -2,8 +2,8 @@ import { SSMClient, GetParameterCommand } from "@aws-sdk/client-ssm";
 import jwt_decode from "jwt-decode";
 import { CognitoJwtVerifier } from "aws-jwt-verify";
 // types
-import { APIGatewayProxyEvent, UserRoles } from "../types";
-import { logger } from "../debugging/debug-lib";
+import { APIGatewayProxyEvent, UserRoles } from "../../shared_utils/types";
+import { logger } from "../../shared_utils/debugging/debug-lib";
 
 interface DecodedToken {
   "custom:cms_roles": UserRoles;

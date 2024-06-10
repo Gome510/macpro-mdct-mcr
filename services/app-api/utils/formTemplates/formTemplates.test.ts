@@ -10,7 +10,7 @@ import {
 } from "./formTemplates";
 import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
 import { mockClient } from "aws-sdk-client-mock";
-import s3Lib from "../s3/s3-lib";
+import s3Lib from "../../shared_utils/s3/s3-lib";
 import dynamodbLib from "../dynamo/dynamodb-lib";
 // forms
 import mlr from "../../forms/mlr.json";
@@ -21,7 +21,12 @@ import {
   mockS3PutObjectCommandOutput,
 } from "../testing/setupJest";
 // types
-import { FormJson, ReportJson, ReportRoute, ReportType } from "../types";
+import {
+  FormJson,
+  ReportJson,
+  ReportRoute,
+  ReportType,
+} from "../../shared_utils/types";
 import { createHash } from "crypto";
 
 const dynamoClientMock = mockClient(DynamoDBDocumentClient);
