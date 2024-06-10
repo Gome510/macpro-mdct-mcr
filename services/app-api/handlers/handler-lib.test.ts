@@ -4,7 +4,7 @@ import { proxyEvent } from "../utils/testing/proxyEvent";
 import { isAuthorized } from "../utils/auth/authorization";
 import * as logger from "../../shared_utils/debugging/debug-lib";
 
-jest.mock("../utils/debugging/debug-lib", () => ({
+jest.mock("../../shared_utils/debugging/debug-lib", () => ({
   init: jest.fn(),
   debug: jest.fn(),
   error: jest.fn(),

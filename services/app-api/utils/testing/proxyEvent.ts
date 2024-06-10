@@ -1,4 +1,4 @@
-import { APIGatewayProxyEvent } from "../../shared_utils/types";
+import { APIGatewayProxyEvent } from "../../../shared_utils/types";
 
 export const proxyEvent: APIGatewayProxyEvent = {
   body: "{}",
