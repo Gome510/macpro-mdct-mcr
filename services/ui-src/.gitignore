@@ -34,3 +34,5 @@ yarn-error.log*
 .idea/
 env-config.js
 public/env-config.js
+
+*storybook.log
