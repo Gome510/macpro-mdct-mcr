@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/react";
 import React from "react";
 import theme from "../src/styles/theme.ts";
 import { ChakraProvider } from "@chakra-ui/react";
+import "../src/styles/index.scss";
 
 const preview: Preview = {
   parameters: {
