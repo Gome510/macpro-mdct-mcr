@@ -1,9 +1,9 @@
 import { Banner } from "./Banner";
 
 const bannerData = {
-  title: "asdkjflk",
-  description: "alksjdf",
-  link: "alskdfj",
+  title: "Banner Title",
+  description: "description",
+  link: "link",
 };
 
 const meta = {
