@@ -3,6 +3,7 @@ import React from "react";
 import theme from "../src/styles/theme.ts";
 import { ChakraProvider } from "@chakra-ui/react";
 import "../src/styles/index.scss";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const preview: Preview = {
   parameters: {
@@ -15,9 +16,11 @@ const preview: Preview = {
   },
   decorators: [
     (Story) => (
-      <ChakraProvider theme={theme}>
-        <Story />
-      </ChakraProvider>
+      <Router>
+        <ChakraProvider theme={theme}>
+          <Story />
+        </ChakraProvider>
+      </Router>
     ),
   ],
 };
