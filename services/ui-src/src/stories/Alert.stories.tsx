@@ -1,6 +1,7 @@
 import { Alert as AlertComponent } from "../components/alerts/Alert";
 import { AlertTypes } from "types";
-const meta = {
+
+export default {
   title: "Alert",
   component: AlertComponent,
   argTypes: {
@@ -22,8 +23,6 @@ const meta = {
     description: "description",
   },
 };
-
-export default meta;
 
 export const Alert = (args: any) => {
   return <AlertComponent {...args} />;
