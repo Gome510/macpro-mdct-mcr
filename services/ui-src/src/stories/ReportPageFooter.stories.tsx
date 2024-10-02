@@ -1,11 +1,15 @@
 import { ReportPageFooter as ReportPageFooterComponent } from "../components/reports/ReportPageFooter.tsx";
 
 export default {
-  title: "ReportPageFooter",
+  title: 'ReportPageFooter',
   component: ReportPageFooterComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    form: undefined,
+    submitting: true,
+    praDisclosure: [],
   },
 };
 

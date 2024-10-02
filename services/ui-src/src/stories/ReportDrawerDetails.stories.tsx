@@ -1,11 +1,14 @@
 import { ReportDrawerDetails as ReportDrawerDetailsComponent } from "../components/drawers/ReportDrawerDetails.tsx";
 
 export default {
-  title: "ReportDrawerDetails",
+  title: 'ReportDrawerDetails',
   component: ReportDrawerDetailsComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    entityType: undefined,
+    drawerDetails: undefined,
   },
 };
 

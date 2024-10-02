@@ -1,11 +1,21 @@
 import { DropdownField as DropdownFieldComponent } from "../components/fields/DropdownField.tsx";
 
 export default {
-  title: "DropdownField",
+  title: 'DropdownField',
   component: DropdownFieldComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    name: 'Sample Text',
+    label: 'Sample Text',
+    hint: undefined,
+    options: undefined,
+    nested: true,
+    autosave: true,
+    validateOnRender: true,
+    sxOverride: undefined,
+    styleAsOptional: true,
   },
 };
 

@@ -1,9 +1,11 @@
-import { AdminBannerForm as AdminBannerFormComponent } from "../components/forms/AdminBannerForm.test.tsx";
+import { AdminBannerForm as AdminBannerFormComponent } from "../components/forms/AdminBannerForm.tsx";
 
 export default {
-  title: "AdminBannerForm",
+  title: 'AdminBannerForm',
   component: AdminBannerFormComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
     writeAdminBanner: undefined,
   },

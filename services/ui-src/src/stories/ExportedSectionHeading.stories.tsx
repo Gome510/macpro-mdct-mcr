@@ -1,11 +1,14 @@
 import { ExportedSectionHeading as ExportedSectionHeadingComponent } from "../components/export/ExportedSectionHeading.tsx";
 
 export default {
-  title: "ExportedSectionHeading",
+  title: 'ExportedSectionHeading',
   component: ExportedSectionHeadingComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    heading: 'Sample Text',
+    verbiage: undefined,
   },
 };
 

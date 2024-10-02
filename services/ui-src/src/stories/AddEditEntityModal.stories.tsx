@@ -1,11 +1,17 @@
 import { AddEditEntityModal as AddEditEntityModalComponent } from "../components/modals/AddEditEntityModal.tsx";
 
 export default {
-  title: "AddEditEntityModal",
+  title: 'AddEditEntityModal',
   component: AddEditEntityModalComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    entityType: 'Sample Text',
+    form: undefined,
+    verbiage: undefined,
+    selectedEntity: undefined,
+    modalDisclosure: undefined,
   },
 };
 

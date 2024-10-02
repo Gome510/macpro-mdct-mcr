@@ -1,11 +1,15 @@
 import { ReportPageIntro as ReportPageIntroComponent } from "../components/reports/ReportPageIntro.tsx";
 
 export default {
-  title: "ReportPageIntro",
+  title: 'ReportPageIntro',
   component: ReportPageIntroComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    text: undefined,
+    accordion: undefined,
+    reportType: 'Sample Text',
   },
 };
 

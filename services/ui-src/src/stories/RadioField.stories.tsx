@@ -1,11 +1,13 @@
 import { RadioField as RadioFieldComponent } from "../components/fields/RadioField.tsx";
 
 export default {
-  title: "RadioField",
+  title: 'RadioField',
   component: RadioFieldComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

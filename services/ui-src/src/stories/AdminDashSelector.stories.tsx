@@ -1,11 +1,13 @@
 import { AdminDashSelector as AdminDashSelectorComponent } from "../components/forms/AdminDashSelector.tsx";
 
 export default {
-  title: "AdminDashSelector",
+  title: 'AdminDashSelector',
   component: AdminDashSelectorComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    verbiage: undefined,
   },
 };
 

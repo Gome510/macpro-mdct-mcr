@@ -1,11 +1,13 @@
 import { PreviewBanner as PreviewBannerComponent } from "../components/banners/PreviewBanner.tsx";
 
 export default {
-  title: "PreviewBanner",
+  title: 'PreviewBanner',
   component: PreviewBannerComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

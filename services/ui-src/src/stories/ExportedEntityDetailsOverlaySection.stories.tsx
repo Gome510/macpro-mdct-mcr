@@ -1,11 +1,13 @@
 import { ExportedEntityDetailsOverlaySection as ExportedEntityDetailsOverlaySectionComponent } from "../components/export/ExportedEntityDetailsOverlaySection.tsx";
 
 export default {
-  title: "ExportedEntityDetailsOverlaySection",
+  title: 'ExportedEntityDetailsOverlaySection',
   component: ExportedEntityDetailsOverlaySectionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

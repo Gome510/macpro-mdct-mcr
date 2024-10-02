@@ -1,11 +1,14 @@
 import { EntityStatusIcon as EntityStatusIconComponent } from "../components/tables/EntityStatusIcon.tsx";
 
 export default {
-  title: "EntityStatusIcon",
+  title: 'EntityStatusIcon',
   component: EntityStatusIconComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    entity: undefined,
+    isPdf: true,
   },
 };
 

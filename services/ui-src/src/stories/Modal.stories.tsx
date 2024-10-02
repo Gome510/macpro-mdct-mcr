@@ -1,11 +1,18 @@
 import { Modal as ModalComponent } from "../components/modals/Modal.tsx";
 
 export default {
-  title: "Modal",
+  title: 'Modal',
   component: ModalComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    modalDisclosure: undefined,
+    content: undefined,
+    submitting: true,
+    onConfirmHandler: undefined,
+    formId: 'Sample Text',
+    children: undefined,
   },
 };
 

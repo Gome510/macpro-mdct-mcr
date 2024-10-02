@@ -1,11 +1,13 @@
 import { ExportedReportWrapper as ExportedReportWrapperComponent } from "../components/export/ExportedReportWrapper.tsx";
 
 export default {
-  title: "ExportedReportWrapper",
+  title: 'ExportedReportWrapper',
   component: ExportedReportWrapperComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    section: undefined,
   },
 };
 

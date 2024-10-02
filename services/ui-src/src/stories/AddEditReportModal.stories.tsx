@@ -1,11 +1,16 @@
 import { AddEditReportModal as AddEditReportModalComponent } from "../components/modals/AddEditReportModal.tsx";
 
 export default {
-  title: "AddEditReportModal",
+  title: 'AddEditReportModal',
   component: AddEditReportModalComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    activeState: 'Sample Text',
+    reportType: 'Sample Text',
+    selectedReport: undefined,
+    modalDisclosure: undefined,
   },
 };
 

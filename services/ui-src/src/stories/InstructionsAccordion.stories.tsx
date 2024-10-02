@@ -1,11 +1,13 @@
 import { InstructionsAccordion as InstructionsAccordionComponent } from "../components/accordions/InstructionsAccordion.tsx";
 
 export default {
-  title: "InstructionsAccordion",
+  title: 'InstructionsAccordion',
   component: InstructionsAccordionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    verbiage: undefined,
   },
 };
 

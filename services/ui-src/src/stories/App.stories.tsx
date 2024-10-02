@@ -1,11 +1,13 @@
 import { App as AppComponent } from "../components/app/App.tsx";
 
 export default {
-  title: "App",
+  title: 'App',
   component: AppComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

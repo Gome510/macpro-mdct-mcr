@@ -1,11 +1,15 @@
 import { ErrorAlert as ErrorAlertComponent } from "../components/alerts/ErrorAlert.tsx";
 
 export default {
-  title: "ErrorAlert",
+  title: 'ErrorAlert',
   component: ErrorAlertComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    error: 'Sample Text',
+    variant: 'Sample Text',
+    sxOverride: undefined,
   },
 };
 

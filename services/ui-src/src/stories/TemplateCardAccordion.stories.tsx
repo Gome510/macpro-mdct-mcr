@@ -1,11 +1,13 @@
 import { TemplateCardAccordion as TemplateCardAccordionComponent } from "../components/accordions/TemplateCardAccordion.tsx";
 
 export default {
-  title: "TemplateCardAccordion",
+  title: 'TemplateCardAccordion',
   component: TemplateCardAccordionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    verbiage: undefined,
   },
 };
 

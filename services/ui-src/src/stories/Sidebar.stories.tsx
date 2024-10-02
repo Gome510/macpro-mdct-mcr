@@ -1,11 +1,13 @@
 import { Sidebar as SidebarComponent } from "../components/menus/Sidebar.tsx";
 
 export default {
-  title: "Sidebar",
+  title: 'Sidebar',
   component: SidebarComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

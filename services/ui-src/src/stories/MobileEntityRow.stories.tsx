@@ -1,11 +1,19 @@
 import { MobileEntityRow as MobileEntityRowComponent } from "../components/tables/MobileEntityRow.tsx";
 
 export default {
-  title: "MobileEntityRow",
+  title: 'MobileEntityRow',
   component: MobileEntityRowComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    entity: undefined,
+    verbiage: undefined,
+    locked: true,
+    entering: true,
+    openAddEditEntityModal: undefined,
+    openDeleteEntityModal: undefined,
+    openEntityDetailsOverlay: undefined,
   },
 };
 

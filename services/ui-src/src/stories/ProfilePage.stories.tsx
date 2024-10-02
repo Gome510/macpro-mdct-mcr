@@ -1,11 +1,13 @@
 import { ProfilePage as ProfilePageComponent } from "../components/pages/Profile/ProfilePage.tsx";
 
 export default {
-  title: "ProfilePage",
+  title: 'ProfilePage',
   component: ProfilePageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

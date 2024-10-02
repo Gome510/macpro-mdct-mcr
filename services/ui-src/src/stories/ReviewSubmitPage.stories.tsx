@@ -1,11 +1,13 @@
 import { ReviewSubmitPage as ReviewSubmitPageComponent } from "../components/pages/ReviewSubmit/ReviewSubmitPage.tsx";
 
 export default {
-  title: "ReviewSubmitPage",
+  title: 'ReviewSubmitPage',
   component: ReviewSubmitPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

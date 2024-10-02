@@ -1,11 +1,14 @@
 import { DynamicField as DynamicFieldComponent } from "../components/fields/DynamicField.tsx";
 
 export default {
-  title: "DynamicField",
+  title: 'DynamicField',
   component: DynamicFieldComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    name: undefined,
+    label: 'Sample Text',
   },
 };
 

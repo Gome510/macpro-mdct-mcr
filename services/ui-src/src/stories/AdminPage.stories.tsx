@@ -1,11 +1,13 @@
 import { AdminPage as AdminPageComponent } from "../components/pages/Admin/AdminPage.tsx";
 
 export default {
-  title: "AdminPage",
+  title: 'AdminPage',
   component: AdminPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

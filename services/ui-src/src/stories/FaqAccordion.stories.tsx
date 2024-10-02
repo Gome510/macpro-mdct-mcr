@@ -1,11 +1,13 @@
 import { FaqAccordion as FaqAccordionComponent } from "../components/accordions/FaqAccordion.tsx";
 
 export default {
-  title: "FaqAccordion",
+  title: 'FaqAccordion',
   component: FaqAccordionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    accordionItems: undefined,
   },
 };
 

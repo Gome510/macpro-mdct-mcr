@@ -1,11 +1,17 @@
 import { MenuOption as MenuOptionComponent } from "../components/menus/MenuOption.tsx";
 
 export default {
-  title: "MenuOption",
+  title: 'MenuOption',
   component: MenuOptionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    text: 'Sample Text',
+    icon: 'Sample Text',
+    altText: 'Sample Text',
+    role: 'Sample Text',
+    hideText: true,
   },
 };
 

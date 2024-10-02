@@ -1,11 +1,22 @@
 import { TextField as TextFieldComponent } from "../components/fields/TextField.tsx";
 
 export default {
-  title: "TextField",
+  title: 'TextField',
   component: TextFieldComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    name: 'Sample Text',
+    label: 'Sample Text',
+    hint: [],
+    placeholder: 'Sample Text',
+    sxOverride: undefined,
+    nested: true,
+    validateOnRender: true,
+    autosave: true,
+    styleAsOptional: true,
+    clear: true,
   },
 };
 

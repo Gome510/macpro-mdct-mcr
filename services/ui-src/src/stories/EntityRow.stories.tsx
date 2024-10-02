@@ -1,11 +1,19 @@
 import { EntityRow as EntityRowComponent } from "../components/tables/EntityRow.tsx";
 
 export default {
-  title: "EntityRow",
+  title: 'EntityRow',
   component: EntityRowComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    entity: undefined,
+    verbiage: undefined,
+    locked: true,
+    entering: true,
+    openAddEditEntityModal: undefined,
+    openDeleteEntityModal: undefined,
+    openEntityDetailsOverlay: undefined,
   },
 };
 

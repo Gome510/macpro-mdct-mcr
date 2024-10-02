@@ -1,11 +1,13 @@
 import { MainSkipNav as MainSkipNavComponent } from "../components/app/MainSkipNav.tsx";
 
 export default {
-  title: "MainSkipNav",
+  title: 'MainSkipNav',
   component: MainSkipNavComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

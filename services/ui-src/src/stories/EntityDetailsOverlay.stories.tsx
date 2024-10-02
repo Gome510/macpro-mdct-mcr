@@ -1,11 +1,22 @@
 import { EntityDetailsOverlay as EntityDetailsOverlayComponent } from "../components/overlays/EntityDetailsOverlay.tsx";
 
 export default {
-  title: "EntityDetailsOverlay",
+  title: 'EntityDetailsOverlay',
   component: EntityDetailsOverlayComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    closeEntityDetailsOverlay: undefined,
+    entityType: undefined,
+    entities: undefined,
+    form: undefined,
+    onSubmit: undefined,
+    selectedEntity: undefined,
+    disabled: true,
+    setEntering: undefined,
+    submitting: true,
+    validateOnRender: true,
   },
 };
 

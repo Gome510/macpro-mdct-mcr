@@ -1,11 +1,13 @@
 import { ReportGetStartedPage as ReportGetStartedPageComponent } from "../components/pages/GetStarted/ReportGetStartedPage.tsx";
 
 export default {
-  title: "ReportGetStartedPage",
+  title: 'ReportGetStartedPage',
   component: ReportGetStartedPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    reportType: 'Sample Text',
   },
 };
 

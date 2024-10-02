@@ -1,11 +1,16 @@
 import { DeleteEntityModal as DeleteEntityModalComponent } from "../components/modals/DeleteEntityModal.tsx";
 
 export default {
-  title: "DeleteEntityModal",
+  title: 'DeleteEntityModal',
   component: DeleteEntityModalComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    entityType: 'Sample Text',
+    selectedEntity: undefined,
+    verbiage: undefined,
+    modalDisclosure: undefined,
   },
 };
 

@@ -1,11 +1,17 @@
 import { ChoiceField as ChoiceFieldComponent } from "../components/fields/ChoiceField.tsx";
 
 export default {
-  title: "ChoiceField",
+  title: 'ChoiceField',
   component: ChoiceFieldComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    name: 'Sample Text',
+    label: 'Sample Text',
+    hint: 'Sample Text',
+    sxOverride: undefined,
+    styleAsOptional: true,
   },
 };
 

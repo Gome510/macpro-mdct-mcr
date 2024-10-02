@@ -1,11 +1,15 @@
 import { Drawer as DrawerComponent } from "../components/drawers/Drawer.tsx";
 
 export default {
-  title: "Drawer",
+  title: 'Drawer',
   component: DrawerComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    verbiage: undefined,
+    drawerDisclosure: undefined,
+    entityType: undefined,
   },
 };
 

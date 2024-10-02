@@ -1,11 +1,13 @@
 import { ExportedReportBanner as ExportedReportBannerComponent } from "../components/export/ExportedReportBanner.tsx";
 
 export default {
-  title: "ExportedReportBanner",
+  title: 'ExportedReportBanner',
   component: ExportedReportBannerComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

@@ -1,11 +1,13 @@
 import { MobileDashboardTable as MobileDashboardTableComponent } from "../components/pages/Dashboard/MobileDashboardTable.tsx";
 
 export default {
-  title: "MobileDashboardTable",
+  title: 'MobileDashboardTable',
   component: MobileDashboardTableComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

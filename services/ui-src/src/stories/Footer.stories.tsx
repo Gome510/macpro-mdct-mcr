@@ -1,11 +1,13 @@
 import { Footer as FooterComponent } from "../components/layout/Footer.tsx";
 
 export default {
-  title: "Footer",
+  title: 'Footer',
   component: FooterComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

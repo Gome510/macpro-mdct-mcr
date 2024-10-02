@@ -1,11 +1,13 @@
 import { NotFoundPage as NotFoundPageComponent } from "../components/pages/NotFound/NotFoundPage.tsx";
 
 export default {
-  title: "NotFoundPage",
+  title: 'NotFoundPage',
   component: NotFoundPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

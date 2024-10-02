@@ -1,11 +1,13 @@
 import { HelpPage as HelpPageComponent } from "../components/pages/Help/HelpPage.tsx";
 
 export default {
-  title: "HelpPage",
+  title: 'HelpPage',
   component: HelpPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

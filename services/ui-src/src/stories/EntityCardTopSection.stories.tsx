@@ -1,11 +1,15 @@
 import { EntityCardTopSection as EntityCardTopSectionComponent } from "../components/cards/EntityCard/EntityCardTopSection.tsx";
 
 export default {
-  title: "EntityCardTopSection",
+  title: 'EntityCardTopSection',
   component: EntityCardTopSectionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    entityType: 'Sample Text',
+    formattedEntityData: undefined,
+    printVersion: true,
   },
 };
 

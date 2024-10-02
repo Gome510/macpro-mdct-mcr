@@ -1,11 +1,14 @@
 import { InfoSection as InfoSectionComponent } from "../components/layout/InfoSection.tsx";
 
 export default {
-  title: "InfoSection",
+  title: 'InfoSection',
   component: InfoSectionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    content: undefined,
+    children: undefined,
   },
 };
 

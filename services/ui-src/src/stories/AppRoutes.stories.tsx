@@ -1,11 +1,13 @@
 import { AppRoutes as AppRoutesComponent } from "../components/app/AppRoutes.tsx";
 
 export default {
-  title: "AppRoutes",
+  title: 'AppRoutes',
   component: AppRoutesComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

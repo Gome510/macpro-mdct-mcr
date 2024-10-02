@@ -1,11 +1,13 @@
 import { StatusTable as StatusTableComponent } from "../components/statusing/StatusTable.tsx";
 
 export default {
-  title: "StatusTable",
+  title: 'StatusTable',
   component: StatusTableComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

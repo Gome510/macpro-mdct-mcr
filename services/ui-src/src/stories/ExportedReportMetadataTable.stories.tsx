@@ -1,11 +1,14 @@
 import { ExportedReportMetadataTable as ExportedReportMetadataTableComponent } from "../components/export/ExportedReportMetadataTable.tsx";
 
 export default {
-  title: "ExportedReportMetadataTable",
+  title: 'ExportedReportMetadataTable',
   component: ExportedReportMetadataTableComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    reportType: undefined,
+    verbiage: undefined,
   },
 };
 

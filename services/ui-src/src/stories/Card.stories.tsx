@@ -1,11 +1,13 @@
 import { Card as CardComponent } from "../components/cards/Card.tsx";
 
 export default {
-  title: "Card",
+  title: 'Card',
   component: CardComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    children: undefined,
   },
 };
 

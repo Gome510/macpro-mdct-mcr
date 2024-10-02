@@ -1,11 +1,13 @@
 import { ReportPageWrapper as ReportPageWrapperComponent } from "../components/reports/ReportPageWrapper.tsx";
 
 export default {
-  title: "ReportPageWrapper",
+  title: 'ReportPageWrapper',
   component: ReportPageWrapperComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

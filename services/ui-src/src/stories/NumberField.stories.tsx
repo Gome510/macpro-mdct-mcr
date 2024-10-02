@@ -1,11 +1,13 @@
 import { NumberField as NumberFieldComponent } from "../components/fields/NumberField.tsx";
 
 export default {
-  title: "NumberField",
+  title: 'NumberField',
   component: NumberFieldComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

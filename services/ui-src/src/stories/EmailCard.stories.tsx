@@ -1,11 +1,14 @@
 import { EmailCard as EmailCardComponent } from "../components/cards/EmailCard.tsx";
 
 export default {
-  title: "EmailCard",
+  title: 'EmailCard',
   component: EmailCardComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    verbiage: undefined,
+    icon: 'Sample Text',
   },
 };
 

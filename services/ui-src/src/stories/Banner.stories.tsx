@@ -1,18 +1,16 @@
-import { Banner as BannerComponent } from "../components/banners/Banner";
+import { Banner as BannerComponent } from "../components/banners/Banner.tsx";
 
-const bannerData = {
-  title: "Banner Title",
-  description: "description",
-  link: "link",
-};
-
-const meta = {
-  title: "Banner",
+export default {
+  title: 'Banner',
   component: BannerComponent,
+  argTypes: {
+
+  },
+  args: {
+    bannerData: undefined,
+  },
 };
 
-export default meta;
-
-export const Banner = () => {
-  return <BannerComponent bannerData={bannerData} />;
+export const Banner = (args: any) => {
+  return <BannerComponent {...args} />;
 };

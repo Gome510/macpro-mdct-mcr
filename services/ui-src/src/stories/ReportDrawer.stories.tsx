@@ -1,11 +1,20 @@
 import { ReportDrawer as ReportDrawerComponent } from "../components/drawers/ReportDrawer.tsx";
 
 export default {
-  title: "ReportDrawer",
+  title: 'ReportDrawer',
   component: ReportDrawerComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    selectedEntity: undefined,
+    verbiage: undefined,
+    form: undefined,
+    onSubmit: undefined,
+    entityType: undefined,
+    submitting: true,
+    drawerDisclosure: undefined,
+    validateOnRender: true,
   },
 };
 

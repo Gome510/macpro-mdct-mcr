@@ -1,11 +1,13 @@
 import { EntityProvider as EntityProviderComponent } from "../components/reports/EntityProvider.tsx";
 
 export default {
-  title: "EntityProvider",
+  title: 'EntityProvider',
   component: EntityProviderComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

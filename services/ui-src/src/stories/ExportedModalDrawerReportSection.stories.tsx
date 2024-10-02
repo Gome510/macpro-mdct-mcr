@@ -1,11 +1,13 @@
 import { ExportedModalDrawerReportSection as ExportedModalDrawerReportSectionComponent } from "../components/export/ExportedModalDrawerReportSection.tsx";
 
 export default {
-  title: "ExportedModalDrawerReportSection",
+  title: 'ExportedModalDrawerReportSection',
   component: ExportedModalDrawerReportSectionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    section: undefined,
   },
 };
 

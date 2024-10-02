@@ -1,11 +1,13 @@
 import { Menu as MenuComponent } from "../components/menus/Menu.tsx";
 
 export default {
-  title: "Menu",
+  title: 'Menu',
   component: MenuComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    handleLogout: undefined,
   },
 };
 

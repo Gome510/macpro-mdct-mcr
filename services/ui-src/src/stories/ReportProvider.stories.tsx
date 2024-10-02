@@ -1,11 +1,13 @@
 import { ReportProvider as ReportProviderComponent } from "../components/reports/ReportProvider.tsx";
 
 export default {
-  title: "ReportProvider",
+  title: 'ReportProvider',
   component: ReportProviderComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    children: undefined,
   },
 };
 

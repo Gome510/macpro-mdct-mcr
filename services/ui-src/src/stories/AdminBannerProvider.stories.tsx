@@ -1,11 +1,13 @@
 import { AdminBannerProvider as AdminBannerProviderComponent } from "../components/banners/AdminBannerProvider.tsx";
 
 export default {
-  title: "AdminBannerProvider",
+  title: 'AdminBannerProvider',
   component: AdminBannerProviderComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    children: undefined,
   },
 };
 

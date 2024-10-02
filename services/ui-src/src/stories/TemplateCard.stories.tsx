@@ -1,11 +1,15 @@
 import { TemplateCard as TemplateCardComponent } from "../components/cards/TemplateCard.tsx";
 
 export default {
-  title: "TemplateCard",
+  title: 'TemplateCard',
   component: TemplateCardComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    templateName: 'Sample Text',
+    verbiage: undefined,
+    isDisabled: true,
   },
 };
 

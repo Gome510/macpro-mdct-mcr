@@ -1,11 +1,14 @@
 import { StandardReportPage as StandardReportPageComponent } from "../components/reports/StandardReportPage.tsx";
 
 export default {
-  title: "StandardReportPage",
+  title: 'StandardReportPage',
   component: StandardReportPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    route: undefined,
+    validateOnRender: true,
   },
 };
 

@@ -1,11 +1,13 @@
 import { DashboardPage as DashboardPageComponent } from "../components/pages/Dashboard/DashboardPage.tsx";
 
 export default {
-  title: "DashboardPage",
+  title: 'DashboardPage',
   component: DashboardPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    reportType: 'Sample Text',
   },
 };
 

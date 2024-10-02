@@ -1,14 +1,30 @@
-import { LoginCognito as LoginCognitoComponent } from "../components/logins/LoginCognito.tsx";
+import { Container } from "@chakra-ui/react";
+import { LoginCognito as LoginCognitoComponent } from "../components/logins/LoginCognito";
 
-export default {
-  title: "LoginCognito",
-  component: LoginCognitoComponent,
-  argTypes: {},
-  args: {
-    writeAdminBanner: undefined,
-  },
+const loginContainer = {
+  maxWidth: "25rem",
+  height: "full",
+  marginY: "auto",
 };
 
-export const LoginCognito = (args: any) => {
-  return <LoginCognitoComponent {...args} />;
+const meta = {
+  title: "Login Cognito",
+  component: LoginCognitoComponent,
+  decorators: [
+    (Story: any) => {
+      return (
+        <main>
+          <Container sx={loginContainer}>
+            <Story />
+          </Container>
+        </main>
+      );
+    },
+  ],
+};
+
+export default meta;
+
+export const LoginCognito = () => {
+  return <LoginCognitoComponent />;
 };

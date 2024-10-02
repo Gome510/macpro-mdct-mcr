@@ -1,11 +1,13 @@
 import { Timeout as TimeoutComponent } from "../components/layout/Timeout.tsx";
 
 export default {
-  title: "Timeout",
+  title: 'Timeout',
   component: TimeoutComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

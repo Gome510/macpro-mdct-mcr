@@ -1,11 +1,22 @@
 import { DateField as DateFieldComponent } from "../components/fields/DateField.tsx";
 
 export default {
-  title: "DateField",
+  title: 'DateField',
   component: DateFieldComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    name: 'Sample Text',
+    label: 'Sample Text',
+    hint: [],
+    timetype: 'Sample Text',
+    nested: true,
+    autosave: true,
+    validateOnRender: true,
+    sxOverride: undefined,
+    styleAsOptional: true,
+    clear: true,
   },
 };
 

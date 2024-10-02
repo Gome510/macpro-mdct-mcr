@@ -1,11 +1,13 @@
 import { PageTemplate as PageTemplateComponent } from "../components/layout/PageTemplate.tsx";
 
 export default {
-  title: "PageTemplate",
+  title: 'PageTemplate',
   component: PageTemplateComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

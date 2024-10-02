@@ -1,11 +1,13 @@
 import { LoginIDM as LoginIDMComponent } from "../components/logins/LoginIDM.tsx";
 
 export default {
-  title: "LoginIDM",
+  title: 'LoginIDM',
   component: LoginIDMComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

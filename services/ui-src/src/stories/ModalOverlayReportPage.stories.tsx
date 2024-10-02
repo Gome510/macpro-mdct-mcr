@@ -1,11 +1,15 @@
 import { ModalOverlayReportPage as ModalOverlayReportPageComponent } from "../components/reports/ModalOverlayReportPage.tsx";
 
 export default {
-  title: "ModalOverlayReportPage",
+  title: 'ModalOverlayReportPage',
   component: ModalOverlayReportPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    route: undefined,
+    setSidebarHidden: undefined,
+    validateOnRender: true,
   },
 };
 

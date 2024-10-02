@@ -1,11 +1,17 @@
 import { Table as TableComponent } from "../components/tables/Table.tsx";
 
 export default {
-  title: "Table",
+  title: 'Table',
   component: TableComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    content: undefined,
+    variant: 'Sample Text',
+    border: true,
+    sxOverride: undefined,
+    children: undefined,
   },
 };
 

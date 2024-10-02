@@ -1,11 +1,13 @@
 import { HomePage as HomePageComponent } from "../components/pages/Home/HomePage.tsx";
 
 export default {
-  title: "HomePage",
+  title: 'HomePage',
   component: HomePageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

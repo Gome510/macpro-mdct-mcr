@@ -1,11 +1,17 @@
 import { ExportedReportFieldRow as ExportedReportFieldRowComponent } from "../components/export/ExportedReportFieldRow.tsx";
 
 export default {
-  title: "ExportedReportFieldRow",
+  title: 'ExportedReportFieldRow',
   component: ExportedReportFieldRowComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    formField: undefined,
+    pageType: 'Sample Text',
+    entityType: 'Sample Text',
+    parentFieldCheckedChoiceIds: [],
+    showHintText: true,
   },
 };
 

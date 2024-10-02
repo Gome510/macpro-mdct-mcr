@@ -1,11 +1,13 @@
 import { CheckboxField as CheckboxFieldComponent } from "../components/fields/CheckboxField.tsx";
 
 export default {
-  title: "CheckboxField",
+  title: 'CheckboxField',
   component: CheckboxFieldComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

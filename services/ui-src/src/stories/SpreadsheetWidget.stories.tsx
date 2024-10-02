@@ -1,11 +1,15 @@
 import { SpreadsheetWidget as SpreadsheetWidgetComponent } from "../components/widgets/SpreadsheetWidget.tsx";
 
 export default {
-  title: "SpreadsheetWidget",
+  title: 'SpreadsheetWidget',
   component: SpreadsheetWidgetComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    description: 'Sample Text',
+    isPdf: true,
+    reportType: 'Sample Text',
   },
 };
 

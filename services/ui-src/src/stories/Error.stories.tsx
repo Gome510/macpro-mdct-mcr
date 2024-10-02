@@ -1,11 +1,13 @@
 import { Error as ErrorComponent } from "../components/app/Error.tsx";
 
 export default {
-  title: "Error",
+  title: 'Error',
   component: ErrorComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

@@ -1,11 +1,14 @@
 import { DrawerReportPage as DrawerReportPageComponent } from "../components/reports/DrawerReportPage.tsx";
 
 export default {
-  title: "DrawerReportPage",
+  title: 'DrawerReportPage',
   component: DrawerReportPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    route: undefined,
+    validateOnRender: true,
   },
 };
 

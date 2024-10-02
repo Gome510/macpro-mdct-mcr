@@ -1,11 +1,13 @@
 import { ExportedModalOverlayReportSection as ExportedModalOverlayReportSectionComponent } from "../components/export/ExportedModalOverlayReportSection.tsx";
 
 export default {
-  title: "ExportedModalOverlayReportSection",
+  title: 'ExportedModalOverlayReportSection',
   component: ExportedModalOverlayReportSectionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    section: undefined,
   },
 };
 

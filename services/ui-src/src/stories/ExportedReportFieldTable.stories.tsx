@@ -1,11 +1,14 @@
 import { ExportedReportFieldTable as ExportedReportFieldTableComponent } from "../components/export/ExportedReportFieldTable.tsx";
 
 export default {
-  title: "ExportedReportFieldTable",
+  title: 'ExportedReportFieldTable',
   component: ExportedReportFieldTableComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    section: undefined,
+    showHintText: true,
   },
 };
 

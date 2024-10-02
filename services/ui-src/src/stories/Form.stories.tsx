@@ -1,11 +1,21 @@
 import { Form as FormComponent } from "../components/forms/Form.tsx";
 
 export default {
-  title: "Form",
+  title: 'Form',
   component: FormComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    id: 'Sample Text',
+    formJson: undefined,
+    onSubmit: undefined,
+    validateOnRender: true,
+    dontReset: true,
+    onError: undefined,
+    formData: undefined,
+    autosave: true,
+    children: undefined,
   },
 };
 

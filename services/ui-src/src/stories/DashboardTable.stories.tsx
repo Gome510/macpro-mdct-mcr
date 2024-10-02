@@ -1,11 +1,13 @@
 import { DashboardTable as DashboardTableComponent } from "../components/pages/Dashboard/DashboardTable.tsx";
 
 export default {
-  title: "DashboardTable",
+  title: 'DashboardTable',
   component: DashboardTableComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+
   },
 };
 

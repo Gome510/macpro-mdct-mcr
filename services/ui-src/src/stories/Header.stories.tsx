@@ -1,11 +1,13 @@
 import { Header as HeaderComponent } from "../components/layout/Header.tsx";
 
 export default {
-  title: "Header",
+  title: 'Header',
   component: HeaderComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    handleLogout: undefined,
   },
 };
 

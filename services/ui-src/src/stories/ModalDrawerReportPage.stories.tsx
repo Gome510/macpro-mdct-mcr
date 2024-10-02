@@ -1,11 +1,14 @@
 import { ModalDrawerReportPage as ModalDrawerReportPageComponent } from "../components/reports/ModalDrawerReportPage.tsx";
 
 export default {
-  title: "ModalDrawerReportPage",
+  title: 'ModalDrawerReportPage',
   component: ModalDrawerReportPageComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    route: undefined,
+    validateOnRender: true,
   },
 };
 

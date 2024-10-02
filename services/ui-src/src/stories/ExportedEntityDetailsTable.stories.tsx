@@ -1,11 +1,15 @@
 import { ExportedEntityDetailsTable as ExportedEntityDetailsTableComponent } from "../components/export/ExportedEntityDetailsTable.tsx";
 
 export default {
-  title: "ExportedEntityDetailsTable",
+  title: 'ExportedEntityDetailsTable',
   component: ExportedEntityDetailsTableComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    fields: [],
+    entity: undefined,
+    showHintText: true,
   },
 };
 

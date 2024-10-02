@@ -1,26 +1,17 @@
-import { Alert as AlertComponent } from "../components/alerts/Alert";
-import { AlertTypes } from "types";
+import { Alert as AlertComponent } from "../components/alerts/Alert.tsx";
 
 export default {
-  title: "Alert",
+  title: 'Alert',
   component: AlertComponent,
   argTypes: {
-    status: {
-      control: {
-        type: "select",
-      },
-      options: [...Object.values(AlertTypes)],
-    },
-    title: {
-      control: {
-        type: "text",
-      },
-    },
+
   },
   args: {
-    status: AlertTypes.INFO,
-    title: "Alert Title",
-    description: "description",
+    status: undefined,
+    title: 'Sample Text',
+    description: 'Sample Text',
+    link: 'Sample Text',
+    showIcon: true,
   },
 };
 

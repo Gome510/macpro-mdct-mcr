@@ -1,11 +1,16 @@
 import { DeleteDynamicFieldRecordModal as DeleteDynamicFieldRecordModalComponent } from "../components/modals/DeleteDynamicFieldRecordModal.tsx";
 
 export default {
-  title: "DeleteDynamicFieldRecordModal",
+  title: 'DeleteDynamicFieldRecordModal',
   component: DeleteDynamicFieldRecordModalComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    selectedRecord: undefined,
+    deleteRecord: undefined,
+    entityType: undefined,
+    modalDisclosure: undefined,
   },
 };
 

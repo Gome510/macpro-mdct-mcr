@@ -1,11 +1,16 @@
 import { EntityCardBottomSection as EntityCardBottomSectionComponent } from "../components/cards/EntityCard/EntityCardBottomSection.tsx";
 
 export default {
-  title: "EntityCardBottomSection",
+  title: 'EntityCardBottomSection',
   component: EntityCardBottomSectionComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    entityType: 'Sample Text',
+    formattedEntityData: undefined,
+    printVersion: true,
+    verbiage: undefined,
   },
 };
 

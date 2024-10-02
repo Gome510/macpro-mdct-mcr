@@ -1,11 +1,19 @@
 import { ExportedEntityDetailsTableRow as ExportedEntityDetailsTableRowComponent } from "../components/export/ExportedEntityDetailsTableRow.tsx";
 
 export default {
-  title: "ExportedEntityDetailsTableRow",
+  title: 'ExportedEntityDetailsTableRow',
   component: ExportedEntityDetailsTableRowComponent,
-  argTypes: {},
+  argTypes: {
+
+  },
   args: {
-    writeAdminBanner: undefined,
+    formField: undefined,
+    pageType: 'Sample Text',
+    entityId: 'Sample Text',
+    entityType: 'Sample Text',
+    parentFieldCheckedChoiceIds: [],
+    showHintText: true,
+    optional: true,
   },
 };
 
