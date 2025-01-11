@@ -7,10 +7,12 @@ export default {
 
   },
   args: {
-    verbiage: undefined,
+    header: "Sample Text",
+    buttonLabel: "Sample Text"
   },
 };
 
 export const AdminDashSelector = (args: any) => {
-  return <AdminDashSelectorComponent {...args} />;
+  const verbiage = {header: args.header, buttonLabel: args.buttonLabel}
+  return <AdminDashSelectorComponent verbiage={verbiage} />;
 };

@@ -4,8 +4,13 @@ import theme from "../src/styles/theme.ts";
 import { ChakraProvider } from "@chakra-ui/react";
 import "../src/styles/index.scss";
 import { BrowserRouter as Router } from "react-router-dom";
-
+import {ReportProvider} from "../src/components"
 const preview: Preview = {
+  docs: {
+    source:{
+      code: 'hello world'
+    }
+  },
   parameters: {
     controls: {
       matchers: {
@@ -18,7 +23,9 @@ const preview: Preview = {
     (Story) => (
       <Router>
         <ChakraProvider theme={theme}>
-          <Story />
+          <ReportProvider>
+            <Story />
+          </ReportProvider>
         </ChakraProvider>
       </Router>
     ),
