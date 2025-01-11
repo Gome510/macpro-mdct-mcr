@@ -219,9 +219,10 @@ export const AddEditReportModal = ({
   );
 };
 
+type ReportType = 'MCPAR' | 'MLR';
 interface Props {
-  activeState: string;
-  reportType: string;
+  activeState: keyof typeof States;
+  reportType: ReportType;
   selectedReport?: AnyObject;
   modalDisclosure: {
     isOpen: boolean;
