@@ -6,11 +6,6 @@ import "../src/styles/index.scss";
 import { BrowserRouter as Router } from "react-router-dom";
 import {ReportProvider} from "../src/components"
 const preview: Preview = {
-  docs: {
-    source:{
-      code: 'hello world'
-    }
-  },
   parameters: {
     controls: {
       matchers: {

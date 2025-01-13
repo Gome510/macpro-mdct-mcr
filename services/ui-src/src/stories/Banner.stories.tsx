@@ -7,10 +7,12 @@ export default {
 
   },
   args: {
-    bannerData: undefined,
+    title: 'Sample Text',
+    description: 'Sample Text',
+    link: 'Sample Text',
   },
 };
 
 export const Banner = (args: any) => {
-  return <BannerComponent {...args} />;
+  return <BannerComponent bannerData={args} />;
 };
