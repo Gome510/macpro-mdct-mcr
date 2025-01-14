@@ -10,3 +10,5 @@
 - Banner
 
 - CheckboxField
+- ChoiceFiled
+- ChoiceListField

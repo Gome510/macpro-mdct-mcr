@@ -1,7 +1,4 @@
-import { FormProvider } from "react-hook-form";
 import { CheckboxField as CheckboxFieldComponent } from "../components/fields/CheckboxField.tsx";
-import { Form } from "components";
-import type { Decorator } from "@storybook/react";
 
 function generateChoices(amount: number){
   return Array.from({ length: amount }, (_, index) => ({
@@ -26,19 +23,6 @@ export default {
     numberOfChoices: 3,
     choices: generateChoices(3)
   },
-  decorators: [
-    ((Story) => (
-      <Form
-        id="id"
-        formJson={{id: "id1", fields: []}}
-        onSubmit={() => {}}
-        validateOnRender={false}
-        dontReset={false}
-      >
-        <Story />
-      </Form>
-    )) as Decorator
-  ]
 };
 
 export const CheckboxField = (args: any) => {

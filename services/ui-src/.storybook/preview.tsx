@@ -4,7 +4,7 @@ import theme from "../src/styles/theme.ts";
 import { ChakraProvider } from "@chakra-ui/react";
 import "../src/styles/index.scss";
 import { BrowserRouter as Router } from "react-router-dom";
-import {ReportProvider} from "../src/components"
+import {Form, ReportProvider} from "../src/components"
 const preview: Preview = {
   parameters: {
     controls: {
@@ -19,7 +19,15 @@ const preview: Preview = {
       <Router>
         <ChakraProvider theme={theme}>
           <ReportProvider>
-            <Story />
+            <Form
+              id="id"
+              formJson={{id: "id1", fields: []}}
+              onSubmit={() => {}}
+              validateOnRender={false}
+              dontReset={false}
+            >
+              <Story />
+            </Form>
           </ReportProvider>
         </ChakraProvider>
       </Router>
