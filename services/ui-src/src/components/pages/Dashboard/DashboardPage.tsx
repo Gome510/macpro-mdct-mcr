@@ -300,7 +300,7 @@ export const DashboardPage = ({ reportType }: Props) => {
 };
 
 interface Props {
-  reportType: string;
+  reportType: "MCPAR" | "MLR";
 }
 
 const sx = {
