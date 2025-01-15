@@ -14,3 +14,6 @@
 - ChoiceListField
 - DashboardTable
 - DashboardPage
+- DateField
+- DeleteDynamicFieldRecordModal
+- DeleteEntityModal

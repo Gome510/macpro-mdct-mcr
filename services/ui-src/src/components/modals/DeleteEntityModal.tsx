@@ -64,7 +64,11 @@ export const DeleteEntityModal = ({
 interface Props {
   entityType: string;
   selectedEntity?: EntityShape;
-  verbiage: AnyObject;
+  verbiage: {
+    deleteModalTitle: string;
+    deleteModalConfirmButtonText: string;
+    deleteModalWarning: string;
+  };
   modalDisclosure: {
     isOpen: boolean;
     onClose: any;
