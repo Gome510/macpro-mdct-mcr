@@ -50,6 +50,7 @@ export const AddEditReportModal = ({
   };
   const modalFormJson = modalFormJsonMap[reportType]!;
   const [form, setForm] = useState<FormJson>(modalFormJson);
+
   useEffect(() => {
     // make deep copy of baseline form for customization
     let customizedModalForm: FormJson = JSON.parse(
